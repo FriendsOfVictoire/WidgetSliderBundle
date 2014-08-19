@@ -1,14 +1,14 @@
 {
-    "name": "victoire/listing-slider-theme",
+    "name": "victoire/slider-widget",
     "type": "symfony-bundle",
-    "description": "Victoire Cms Listing Slider theme",
-    "keywords": ["cms", "victoire", "Slider", "Listing", "theme"],
+    "description": "Victoire Cms Listing Slider Widget",
+    "keywords": ["cms", "victoire", "Slider", "Listing", "Widget"],
     "homepage": "http://appventus.com",
     "license": "MIT",
     "authors": [
         {
-            "name": "Your name",
-            "email": "you@company.com"
+            "name": "Leny Bernard",
+            "email": "leny@appventus.com"
         }
     ],
     "require": {
