@@ -17,8 +17,8 @@
         "victoire/victoire"        : "dev-master"
     },
     "autoload": {
-        "psr-0": { "Victoire\\Widget\\Listing\\Slider\\VictoireWidgetSliderBundle": "" }
+        "psr-0": { "Victoire\\Widget\\SliderBundle": "" }
     },
     "minimum-stability": "dev",
-    "target-dir": "Victoire/Widget/Listing/Slider/VictoireWidgetSliderBundle"
+    "target-dir": "Victoire/Widget/SliderBundle"
 }
