@@ -1,0 +1,24 @@
+{
+    "name": "victoire/listing-slider-theme",
+    "type": "symfony-bundle",
+    "description": "Victoire Cms Listing Slider theme",
+    "keywords": ["cms", "victoire", "Slider", "Listing", "theme"],
+    "homepage": "http://appventus.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Your name",
+            "email": "you@company.com"
+        }
+    ],
+    "require": {
+        "php"                      : ">=5.3.3",
+        "symfony/framework-bundle" : "~2.3",
+        "victoire/victoire"        : "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Victoire\\Widget\\Listing\\Slider\\VictoireWidgetSliderBundle": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "Victoire/Widget/Listing/Slider/VictoireWidgetSliderBundle"
+}

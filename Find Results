@@ -1,0 +1,44 @@
+Searching 15562 files for "vic_slot_widgets"
+
+/Users/lenybernard/Workspace/patrimea/v2/vendor/victoire/victoire/Victoire/Bundle/CoreBundle/Resources/views/Layout/1col.html.twig:
+    1  <div class="slot span12 mini-layout-body" id="default_full">
+    2: {{ vic_slot_widgets(view, "default_full")}}
+    3  </div>
+    4
+
+/Users/lenybernard/Workspace/patrimea/v2/vendor/victoire/victoire/Victoire/Bundle/CoreBundle/Resources/views/Layout/2cols.html.twig:
+    1  <div class="slot span2 mini-layout-body" id="default_mini_sidebar">
+    2: {{ vic_slot_widgets(view, "default_mini_sidebar")}}
+    3  </div>
+    4  <div class="slot span10 mini-layout-body" id="default_full">
+    5: {{ vic_slot_widgets(view, "default_full")}}
+    6  </div>
+    7
+
+/Users/lenybernard/Workspace/patrimea/v2/vendor/victoire/victoire/Victoire/Bundle/CoreBundle/Resources/views/Layout/3cols.html.twig:
+    1  <div class="row">
+    2      <div class="slot span12 mini-layout-body" id="default_menu_bar">
+    3:     {{ vic_slot_widgets(view, "default_menu_bar")}}
+    4      </div>
+    5  </div>
+    .
+    7  <div class="row">
+    8      <div class="slot span3 mini-layout-body" id="default_mini_sidebar">
+    9:     {{ vic_slot_widgets(view, "default_mini_sidebar")}}
+   10      </div>
+   11      <div class="slot span6 mini-layout-body" id="default_full">
+   12:     {{ vic_slot_widgets(view, "default_full")}}
+   13      </div>
+   14      <div class="slot span3 mini-layout-body" id="default_social_sidebar">
+   15:     {{ vic_slot_widgets(view, "default_social_sidebar")}}
+   16      </div>
+   17  </div>
+
+/Users/lenybernard/Workspace/patrimea/v2/vendor/victoire/victoire/Victoire/Bundle/CoreBundle/Twig/Extension/CmsExtension.php:
+   65          return array(
+   66              'cms_widget_actions'         => new \Twig_Function_Method($this, 'cmsWidgetActions', array('is_safe' => array('html'))),
+   67:             'vic_slot_widgets'           => new \Twig_Function_Method($this, 'cmsSlotWidgets', array('is_safe' => array('html'))),
+   68              'cms_slot_actions'           => new \Twig_Function_Method($this, 'cmsSlotActions', array('is_safe' => array('html'))),
+   69              'cms_widget'                 => new \Twig_Function_Method($this, 'cmsWidget', array('is_safe' => array('html'))),
+
+8 matches across 4 files

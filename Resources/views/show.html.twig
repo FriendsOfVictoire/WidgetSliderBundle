@@ -1,0 +1,21 @@
+{% extends 'VictoireCoreBundle:Widget:show.html.twig' %}
+
+{% block content %}
+    <ul class="slider" id="homepage-slider">
+		{% for key, item in widget.sliderItems %}
+            {% if preview_mode is defined and preview_mode %}
+                <li id="slider-{{ key }}-container" data-entity-name="{{entity_name}}" data-id="{{entity_id}}" data-entity="{{entity}}">
+            {% else %}
+                <li id="slider-{{ key }}-container">
+            {% endif %}
+                {% include 'VictoireWidgetSliderBundle::showItem.html.twig' %}
+            </li>
+		{% endfor %}
+	</ul>
+
+
+    {% javascripts
+        '@VictoireWidgetSliderBundle/Resources/public/Commons/js/slider_view.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock content %}

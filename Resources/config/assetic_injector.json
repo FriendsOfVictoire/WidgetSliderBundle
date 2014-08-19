@@ -1,0 +1,28 @@
+{
+    "require_all":
+    {
+        "stylesheets":
+        {
+            "victoire-edit":
+            [
+                "@VictoireWidgetSliderBundle/Resources/style/less/slider_style.less"
+            ],
+            "head":
+            [
+                "@VictoireWidgetSliderBundle/Resources/public/Commons/css/slider.css",
+                "@VictoireWidgetSliderBundle/Resources/public/vendor/anythingslider/css/anythingslider.css"
+            ]
+        },
+        "javascripts":
+        {
+            "victoire-edit":
+            [
+                "@VictoireWidgetSliderBundle/Resources/public/Commons/js/slider_edit.js"
+            ],
+            "foot":
+            [
+                "@VictoireWidgetSliderBundle/Resources/public/vendor/anythingslider/js/jquery.anythingslider.js"
+            ]
+         }
+    }
+}

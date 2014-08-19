@@ -1,0 +1,13 @@
+<div class="slide" {% if item.image %} style="background-image: url('{{ item.image.url }}'); background-repeat: no-repeat; background-position: top right"{% endif %}>
+    <div class="padding40">
+        <div class="title">{{ item.title|raw|nl2br }}</div>
+        <p>{{ item.description|raw|nl2br }}</p>
+        <a href="{{ item.linkUrl }}" class="btn discover">{{ item.linkLabel }}&nbsp;<img src="/bundles/app/images/red-chip.png" alt="chip" width="15" height="15"/></a>
+    </div>
+</div>
+
+{% if preview_mode is defined and preview_mode %}
+<a href="#" class="remove-widget-slider-widget"><i class="icon-trash">&nbsp;</i></a>
+<input type="hidden" name="appventus_victoirecorebundle_widgetslidertype[widgets][{{entity_id}}][entity][{{entity}}]" value="{{entity_id}}"></input>
+<input class="position-field" type="hidden" name="appventus_victoirecorebundle_widgetslidertype[widgets][{{entity_id}}][position]" value="0"></input>
+{% endif %}

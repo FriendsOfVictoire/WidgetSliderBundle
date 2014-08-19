@@ -1,0 +1,11 @@
+jms_translation:
+    configs:
+        victoire_widget_slider_bundle:
+            dirs: ["@VictoireWidgetSliderBundle"]
+            output_dir: "src/Victoire/Widgets/SliderBundle/Resources/translations"
+
+victoire_core:
+    widgets:
+        Slider:
+            class: "Victoire\\Widget\\SliderBundle\\Entity\\WidgetSlider"
+            name: Slider

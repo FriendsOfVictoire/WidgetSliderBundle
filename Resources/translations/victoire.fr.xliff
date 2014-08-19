@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2014-07-01T16:37:02Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit resname="modal.form.widget.type.slider.label">
+        <source>modal.form.widget.type.slider.label</source>
+        <target>Slider</target>
+      </trans-unit>
+      <trans-unit resname="widget.form.theme.widgetslider">
+        <source>widget.form.theme.widgetslider</source>
+        <target>Slider</target>
+      </trans-unit>
+      <trans-unit resname="widget.slider.new.action.label">
+        <source>widget.slider.new.action.label</source>
+        <target>Slider</target>
+      </trans-unit>
+      <trans-unit resname="widget.widgetslider.new.action.label">
+        <source>widget.widgetslider.new.action.label</source>
+        <target>Slider</target>
+      </trans-unit>
+      <trans-unit resname="form.slideritem.title.label">
+        <source>form.slideritem.title.label</source>
+        <target>Titre</target>
+      </trans-unit>
+      <trans-unit resname="form.slideritem.description.label">
+        <source>form.slideritem.description.label</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit resname="form.slideritem.linkUrl.label">
+        <source>form.slideritem.linkUrl.label</source>
+        <target>Bouton (Lien)</target>
+      </trans-unit>
+      <trans-unit resname="form.slideritem.linkLabel.label">
+        <source>form.slideritem.linkLabel.label</source>
+        <target>Bouton (libellé)</target>
+      </trans-unit>
+      <trans-unit resname="form.slideritem.image.label">
+        <source>form.slideritem.image.label</source>
+        <target>Image</target>
+      </trans-unit>
+      <trans-unit resname="form.slideritem.image.label">
+        <source>form.slideritem.image.label</source>
+        <target>Image</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
