@@ -1,6 +1,6 @@
 services:
     victoire_core.widget_slider.content_resolver:
-        class: Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver
+        parent: victoire_core.widget_listing_content_resolver
         tags:
             - {name: victoire_widget.widget_content_resolver, alias: Slider}
     #alias to the entity
