@@ -27,10 +27,6 @@ class WidgetSliderItemType extends WidgetType
                 ),
                 'label' => 'form.slideritem.title.label')
             )
-            ->add('description', 'textarea', array(
-                'attr' => array(
-                    'rows' => 3),
-                'label' => 'form.slideritem.description.label'))
             ->add('linkUrl', null, array(
                 'label' => 'form.slideritem.linkUrl.label'))
             ->add('linkLabel', null, array(
