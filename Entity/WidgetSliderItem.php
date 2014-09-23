@@ -15,6 +15,8 @@ use Victoire\Bundle\MediaBundle\Entity\Media;
  */
 class WidgetSliderItem extends WidgetListingItem
 {
+    use \Victoire\Bundle\WidgetBundle\Entity\Traits\LinkTrait;
+
     /**
      * @var integer
      *
@@ -30,13 +32,6 @@ class WidgetSliderItem extends WidgetListingItem
      * @ORM\Column(name="link_label", type="string", length=55)
      */
     protected $linkLabel;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="link_url", type="string", length=255)
-     */
-    protected $linkUrl;
 
     /**
      * @var string
@@ -109,30 +104,6 @@ class WidgetSliderItem extends WidgetListingItem
     public function getLinklabel()
     {
         return $this->linkLabel;
-    }
-
-    /**
-     * Set linkUrl
-     *
-     * @param string $linkUrl
-     *
-     * @return WidgetSliderItem
-     */
-    public function setLinkUrl($linkUrl)
-    {
-        $this->linkUrl = $linkUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get linkUrl
-     *
-     * @return string
-     */
-    public function getLinkUrl()
-    {
-        return $this->linkUrl;
     }
 
     /**

@@ -27,8 +27,10 @@ class WidgetSliderItemType extends WidgetType
                 ),
                 'label' => 'form.slideritem.title.label')
             )
-            ->add('linkUrl', null, array(
-                'label' => 'form.slideritem.linkUrl.label'))
+
+            ->add('link', 'victoire_link', array(
+                'label' => 'form.slideritem.linkUrl.label'
+            ))
             ->add('linkLabel', null, array(
                 'label' => 'form.slideritem.linkLabel.label'))
             ->add('image', 'media', array(
