@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Victoire\Bundle\CoreBundle\Annotations as VIC;
 use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 use Victoire\Bundle\MediaBundle\Entity\Media;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * WidgetSliderItem
@@ -29,7 +30,8 @@ class WidgetSliderItem extends WidgetListingItem
     /**
      * @var string
      *
-     * @ORM\Column(name="link_label", type="string", length=55)
+     * @ORM\Column(name="link_label", type="string", length=55, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $linkLabel;
 
