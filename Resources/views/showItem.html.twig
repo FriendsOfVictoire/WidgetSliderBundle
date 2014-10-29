@@ -1,7 +1,6 @@
 <div class="slide" {% if item.image %} style="background-image: url('{{ item.image.url }}'); background-repeat: no-repeat; background-position: top right"{% endif %}>
     <div class="padding40">
         <div class="title">{{ item.title|raw|nl2br }}</div>
-        <p>{{ item.description|raw|nl2br }}</p>
         {% set targetTag = item.target == "ajax-modal" ? 'data-toggle=' ~ item.target : 'target=' ~ item.target|default('_parent') %}
         <a href="{{ vic_link_url(item.linkParameters) }}" {{ targetTag }} class="btn discover">{{ item.linkLabel }}&nbsp;<img src="/bundles/app/images/red-chip.png" alt="chip" width="15" height="15"/></a>
     </div>
