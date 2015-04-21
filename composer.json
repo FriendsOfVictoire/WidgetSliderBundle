@@ -1,5 +1,5 @@
 {
-    "name": "appventus/slider-widget",
+    "name": "friendsofvictoire/slider-widget",
     "type": "symfony-bundle",
     "description": "Victoire Cms Listing Slider Widget",
     "keywords": ["cms", "victoire", "Slider", "Listing", "Widget"],
