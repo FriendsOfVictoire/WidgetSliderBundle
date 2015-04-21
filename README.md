@@ -6,7 +6,7 @@ To use this widget, you must *obviously* install this widget in a Victoire proje
 
 Then you just have to run the following composer command in your projet :
 
-    php composer.phar require victoire/slider-bundle
+    php composer.phar require victoire/slider-widget
 
 Do not forget to add the bundle in your AppKernel !
 
@@ -22,7 +22,3 @@ Do not forget to add the bundle in your AppKernel !
             return $bundles;
         }
     }
-
-[![Licence Creative Commons](http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
-
-This product is provided under [Licence Creative Commns Attributions - No commercial use - No share 4.0 France](http://creativecommons.org/licenses/by-nc-nd/4.0/fr/) terms.
