@@ -19,24 +19,24 @@ class WidgetSliderType extends WidgetType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $entityName = $options['entityName'];
+        $businessEntityId = $options['businessEntityId'];
         $namespace = $options['namespace'];
         $mode = $options['mode'];
 
         //choose form mode
-        if ($entityName === null) {
+        if ($businessEntityId === null) {
             //if no entity is given, we generate the static form
             $builder->add('sliderItems', 'collection', array(
-                        'type'         => new WidgetSliderItemType($entityName, $namespace, $options['widget']),
+                        'type'         => new WidgetSliderItemType($businessEntityId, $namespace, $options['widget']),
                         'allow_add'    => true,
                         'allow_delete' => true,
                         'by_reference' => false,
+                        "attr"         => array('id' => 'static'),
                         'options'      => array(
-                            'namespace'  => $namespace,
-                            'entityName' => $entityName,
-                            'mode'       => $mode
+                            'namespace'        => $namespace,
+                            'businessEntityId' => $businessEntityId,
+                            'mode'             => $mode
                         ),
-                        "attr"         => array('id' => 'static')
                     ));
         } else {
             //else, WidgetType class will embed a EntityProxyType for given entity
@@ -55,15 +55,15 @@ class WidgetSliderType extends WidgetType
                     "widget"    => $options['widget']
                 ))
                 ->add('sliderItems', 'collection', array(
-                        'type'         => new WidgetSliderItemType($entityName, $namespace, $options['widget']),
+                        'type'         => new WidgetSliderItemType($businessEntityId, $namespace, $options['widget']),
                         'allow_add'    => true,
                         'by_reference' => false,
-                        'options' => array(
-                            'namespace' => $namespace,
-                            'entityName' => $entityName,
-                            'mode' => $mode
+                        "attr"         => array('id' => $businessEntityId),
+                        'options'      => array(
+                            'namespace'        => $namespace,
+                            'businessEntityId' => $businessEntityId,
+                            'mode'             => $mode
                         ),
-                        "attr"         => array('id' => $entityName)
                 ));
         }
 
