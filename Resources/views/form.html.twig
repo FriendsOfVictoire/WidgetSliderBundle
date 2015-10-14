@@ -1,21 +1,33 @@
 <div id="picker-static" class="vic-tab-pane vic-active">
-  {{ form_start(form) }}
-  <ul class="vic-row vic-items" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
-    {% for item in form.sliderItems %}
-    <li class="vic-col-lg-12 vic-request-block">
-      <div class="vic-panel vic-panel-default">
-        <div class="vic-panel-heading">
-          <span class="vic-circled request-number"></span><button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right" data-action="remove-block"><i class="fa fa-trash-o"></i></button>
-      </div>
-      <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
-          {{ form_widget(item) }}
-      </div>
-  </div>
-</li>
-{% endfor %}
-</ul>
-{% do form.sliderItems.setRendered %}
- 
+    {{ form_start(form) }}
+    <div class="col-md-4">
+        {{ form_row(form.library) }}
+        {{ form_row(form.bullets) }}
+        <div class="clearfix">
+            {{ form_row(form.autoplay) }}
+        </div>
+        {{ (form.autoplaySpeed is defined) ? form_row(form.autoplaySpeed) }}
+    </div>
+    <div class="col-md-8">
+        <ul class="vic-row vic-items" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
+            {% for item in form.sliderItems %}
+                <li class="vic-col-lg-12 vic-request-block">
+                    <div class="vic-panel vic-panel-default">
+                        <div class="vic-panel-heading">
+                            <span class="vic-circled request-number"></span>
+                            <button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right"
+                                    data-action="remove-block"><i class="fa fa-trash-o"></i></button>
+                        </div>
+                        <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
+                            {{ form_widget(item) }}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% do form.sliderItems.setRendered %}
+
 {{ form_rest(form) }}
 {{ form_end(form) }}
 <script type="text/javascript">

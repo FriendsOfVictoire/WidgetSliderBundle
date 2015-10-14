@@ -1,3 +1,16 @@
-<div class="item{% if class is defined %} {{ class }}{% endif %}">
-	{{ vic_link(item.link.parameters, '<img src="' ~  item.image.url ~ '" alt="' ~ item.linkLabel  ~ '"/>') }}
+<div class="item{% if class is defined %} {{ class }}{% endif %}" style="background-image:url({{ item.image.url  }})">
+
+    {% if item.title is defined and item.title %}
+        <h2>{{ vic_link(item.link.parameters, item.title) }}</h2>
+    {% endif %}
+
+    {% if item.subtitle is defined and item.subtitle %}
+        <h3>{{ vic_link(item.link.parameters, item.subtitle) }}</h3>
+    {% endif %}
+
+    {% if item.linkLabel is defined and item.linkLabel %}
+        {{ vic_link(item.link.parameters, item.linkLabel) }}
+    {% endif %}
+
+
 </div>
