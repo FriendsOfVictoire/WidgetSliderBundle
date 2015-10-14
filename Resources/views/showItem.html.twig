@@ -1,3 +1,17 @@
-<div class="item{% if class is defined %} {{ class }}{% endif %}">
-	{{ vic_link(item.link.parameters, '<img src="' ~  item.image.url ~ '" alt="' ~ item.linkLabel  ~ '"/>') }}
-</div>
+{% spaceless %}
+
+    <div class="item{% if class is defined %} {{ class }}{% endif %}" style="background-image:url({% block background_image %}{% endblock %})">
+
+        {% block title %}
+            <h2>{% block title_content %}{% endblock %}</h2>
+        {% endblock %}
+
+        {% block subtitle %}
+            <h3>{% block subtitle_content %}{% endblock %}</h3>
+        {% endblock %}
+
+        {% block link %}{% endblock %}
+
+    </div>
+
+{% endspaceless %}

@@ -38,6 +38,14 @@ class WidgetSliderItem extends WidgetListingItem
     /**
      * @var string
      *
+     * @ORM\Column(name="subtitle", type="string", length=255, nullable=true)
+     * @VIC\ReceiverProperty("textable")
+     */
+    protected $subtitle;
+
+    /**
+     * @var string
+     *
      * @ORM\ManyToOne(targetEntity="\Victoire\Bundle\MediaBundle\Entity\Media")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id", onDelete="CASCADE")
      * @VIC\ReceiverProperty("imageable")
@@ -153,4 +161,25 @@ class WidgetSliderItem extends WidgetListingItem
     {
         return $this->slider;
     }
+
+    /**
+     * @return string
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * @param string $subtitle
+     *
+     * @return $this
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
 }

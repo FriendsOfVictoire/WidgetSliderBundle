@@ -1,0 +1,46 @@
+{% stylesheets filter='scss, cssrewrite'
+    "@VictoireWidgetSliderBundle/Resources/public/bower_components/slick.js/slick/slick.css"
+    "@VictoireWidgetSliderBundle/Resources/public/css/slick-slider.scss"
+%}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+{% endstylesheets %}
+
+<div id="slick-{{ widget.id }}">
+    {% for item in widget.sliderItems %}
+        {% embed 'VictoireWidgetSliderBundle::showItem.html.twig' %}
+
+            {% block background_image %}
+                {{ item.image.url }}
+            {% endblock %}
+
+            {% block title_content %}
+                {{ (item.title is defined and item.title) ? vic_link(item.link.parameters, item.title) }}
+            {% endblock %}
+
+            {% block subtitle_content %}
+                {{ (item.subtitle is defined and item.subtitle) ? vic_link(item.link.parameters, item.subtitle) }}
+            {% endblock %}
+
+            {% block link %}
+                {{ vic_link(item.link.parameters, item.linkLabel) }}
+            {% endblock %}
+
+        {% endembed %}
+    {% endfor %}
+</div>
+
+{% javascripts '@VictoireWidgetSliderBundle/Resources/public/bower_components/slick.js/slick/slick.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#slick-{{ widget.id }}').slick({
+            dots: {{ widget.bullets ? 'true' : 'false' }},
+            prevArrow : '<span class="slick-arrow prev"></span>',
+            nextArrow : '<span class="slick-arrow next"></span>',
+            autoplay : {{ widget.autoplay ? 'true' : 'false' }},
+            autoplaySpeed : {{ widget.autoplaySpeed }}
+        });
+    });
+</script>

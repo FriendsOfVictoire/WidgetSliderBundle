@@ -21,6 +21,26 @@ class WidgetSlider extends WidgetListing
     protected $sliderItems;
 
     /**
+     * @ORM\Column(name="library", type="string", length=255, nullable=true)
+     */
+    protected $library;
+
+    /**
+     * @ORM\Column(name="bullets", type="boolean")
+     */
+    protected $bullets;
+
+    /**
+     * @ORM\Column(name="autoplay", type="boolean")
+     */
+    protected $autoplay;
+
+    /**
+     * @ORM\Column(name="autoplaySpeed", type="string", length=255)
+     */
+    protected $autoplaySpeed;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -75,4 +95,85 @@ class WidgetSlider extends WidgetListing
     {
         return $this->sliderItems;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLibrary()
+    {
+        return $this->library;
+    }
+
+    /**
+     * @param mixed $library
+     *
+     * @return $this
+     */
+    public function setLibrary($library)
+    {
+        $this->library = $library;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAutoplay()
+    {
+        return $this->autoplay;
+    }
+
+    /**
+     * @param mixed $autoplay
+     *
+     * @return $this
+     */
+    public function setAutoplay($autoplay)
+    {
+        $this->autoplay = $autoplay;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAutoplaySpeed()
+    {
+        return $this->autoplaySpeed;
+    }
+
+    /**
+     * @param mixed $autoplaySpeed
+     *
+     * @return $this
+     */
+    public function setAutoplaySpeed($autoplaySpeed)
+    {
+        $this->autoplaySpeed = $autoplaySpeed;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBullets()
+    {
+        return $this->bullets;
+    }
+
+    /**
+     * @param mixed $bullets
+     *
+     * @return $this
+     */
+    public function setBullets($bullets)
+    {
+        $this->bullets = $bullets;
+
+        return $this;
+    }
+
 }
