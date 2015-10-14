@@ -1,16 +1,17 @@
-<div class="item{% if class is defined %} {{ class }}{% endif %}" style="background-image:url({{ item.image.url  }})">
+{% spaceless %}
 
-    {% if item.title is defined and item.title %}
-        <h2>{{ vic_link(item.link.parameters, item.title) }}</h2>
-    {% endif %}
+    <div class="item{% if class is defined %} {{ class }}{% endif %}" style="background-image:url({% block background_image %}{% endblock %})">
 
-    {% if item.subtitle is defined and item.subtitle %}
-        <h3>{{ vic_link(item.link.parameters, item.subtitle) }}</h3>
-    {% endif %}
+        {% block title %}
+            <h2>{% block title_content %}{% endblock %}</h2>
+        {% endblock %}
 
-    {% if item.linkLabel is defined and item.linkLabel %}
-        {{ vic_link(item.link.parameters, item.linkLabel) }}
-    {% endif %}
+        {% block subtitle %}
+            <h3>{% block subtitle_content %}{% endblock %}</h3>
+        {% endblock %}
 
+        {% block link %}{% endblock %}
 
-</div>
+    </div>
+
+{% endspaceless %}
