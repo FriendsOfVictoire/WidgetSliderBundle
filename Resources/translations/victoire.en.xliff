@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2013-11-27T18:15:06Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
-    <header>
-      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
-      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
-    </header>
-    <body>
-      <trans-unit resname="widget.listingSlider.new.action.label">
-        <source>widget.listingSlider.new.action.label</source>
-        <target>Listing Slider</target>
-      </trans-unit>
-      <trans-unit resname="modal.form.widget.type.listingSlider.label">
-        <source>modal.form.widget.type.listingSlider.label</source>
-        <target>Listing Slider</target>
-      </trans-unit>
-    </body>
-  </file>
+    <file date="2013-11-27T18:15:06Z" source-language="en" target-language="fr" datatype="plaintext"
+          original="not.available">
+        <header>
+            <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+            <note>The source node in most cases contains the sample message as written by the developer. If it looks
+                like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a
+                default message.
+            </note>
+        </header>
+        <body>
+            <trans-unit resname="form.slideritem.subtitle.label">
+                <source>form.slideritem.subtitle.label</source>
+                <target>Subtitle</target>
+            </trans-unit>
+            <trans-unit resname="widget.listingSlider.new.action.label">
+                <source>widget.listingSlider.new.action.label</source>
+                <target>Listing Slider</target>
+            </trans-unit>
+            <trans-unit resname="modal.form.widget.type.listingSlider.label">
+                <source>modal.form.widget.type.listingSlider.label</source>
+                <target>Listing Slider</target>
+            </trans-unit>
+            <trans-unit resname="widget_slider.form.library.label">
+                <source>widget_slider.form.library.label</source>
+                <target>Library</target>
+            </trans-unit>
+            <trans-unit resname="widget_slider.form.autoplay.label">
+                <source>widget_slider.form.autoplay.label</source>
+                <target>Autoplay</target>
+            </trans-unit>
+            <trans-unit resname="widget_slider.form.autoplaySpeed.label">
+                <source>widget_slider.form.autoplaySpeed.label</source>
+                <target>Slides interval (milliseconds)</target>
+            </trans-unit>
+            <trans-unit resname="widget_slider.form.bullets.label">
+                <source>widget_slider.form.bullets.label</source>
+                <target>Indicators (bullets)</target>
+            </trans-unit>
+            <trans-unit resname="widget_slider.form.library.bootstrap.help">
+                <source>widget_slider.form.library.bootstrap.help</source>
+                <target>
+                    <![CDATA[Bootstrap slider is implemented with bullets to navigate from one slide to another.</br>
+                    <a href="http://getbootstrap.com/javascript/#carousel" target="_blank">http://getbootstrap.com/javascript/#carousel</a>]]></target>
+            </trans-unit>
+            <trans-unit resname="widget_slider.form.library.slick.help">
+                <source>widget_slider.form.library.slick.help</source>
+                <target>
+                    <![CDATA[Slick slider fit perfectly with all devices. This slider has been developed for responsive purposes and allow user to navigate from one slide to another by sliding the image. Default theme implements navigation arrows on each side of the slider.</br>
+                    <a href="http://kenwheeler.github.io/slick" target="_blank">http://kenwheeler.github.io/slick</a>]]></target>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>
