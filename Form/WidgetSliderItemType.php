@@ -21,16 +21,12 @@ class WidgetSliderItemType extends WidgetType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'textarea', array(
-                'attr' => array(
-                    'rows' => 3,
-                ),
-                'label' => 'form.slideritem.title.label')
-            )
-
+            ->add('title', null, array(
+                'label' => 'form.slideritem.title.label'))
+            ->add('subtitle', null, array(
+                'label' => 'form.slideritem.subtitle.label'))
             ->add('link', 'victoire_link', array(
-                'label' => 'form.slideritem.linkUrl.label'
-            ))
+                'label' => 'form.slideritem.linkUrl.label'))
             ->add('linkLabel', null, array(
                 'label' => 'form.slideritem.linkLabel.label'))
             ->add('image', 'media', array(
