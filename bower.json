@@ -1,0 +1,9 @@
+{
+    "name": "WidgetFormBundle",
+    "authors": [
+        "Grégoire Humeau <gregoire@appventus.com>"
+    ],
+    "dependencies": {
+        "slick.js": "1.5.8"
+    }
+}
