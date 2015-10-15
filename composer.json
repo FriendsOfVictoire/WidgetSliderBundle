@@ -20,13 +20,5 @@
         "psr-0": { "Victoire\\Widget\\SliderBundle": "" }
     },
     "minimum-stability": "dev",
-    "scripts": {
-        "post-install-cmd": [
-            "bower install"
-        ],
-        "post-update-cmd": [
-            "bower install"
-        ]
-    },
     "target-dir": "Victoire/Widget/SliderBundle"
 }
