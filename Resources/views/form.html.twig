@@ -28,55 +28,47 @@
     </div>
     {% do form.sliderItems.setRendered %}
 
-{{ form_rest(form) }}
-{{ form_end(form) }}
-<script type="text/javascript">
-    $vic(document).ready(function() {
- 
-          // Disable entity select when we submit the form
-        $vic('form#{{form.sliderItems.vars.attr.id}}').on('submit', function(e){
-            $vic('select.add_{{form.sliderItems.vars.attr.id}}_link').prop('disabled', true);
-        });
- 
-          });
- 
-    var collectionHolder = $vic('ul.vic-items');
-    // ajoute un lien « add a item »
-    var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block"><img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}</a>');
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
 
-    var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
- 
-    $vic(document).ready(function() {
-          // ajoute l'ancre « ajouter un item » et li à la balise ul
-          collectionHolder.append($newLinkContainer);
- 
-          $addItemLink.on('click', function(e) {
-              // empêche le lien de créer un « # » dans l'URL
-              e.preventDefault();
- 
-              // ajoute un nouveau formulaire item (voir le prochain bloc de code)
-              addItemForm(collectionHolder, $newLinkContainer);
-          });
-      });
- 
-    function addItemForm(collectionHolder, $newLinkContainer) {
-        // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
-        var prototype = collectionHolder.attr('data-prototype');
- 
-        // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
-        // la longueur de la collection courante
-        var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
- 
-        // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
-        var $newFormContainer = $vic('<li class="vic-col-lg-12 vic-request-block"><div class="vic-panel vic-panel-default"><div class="vic-panel-heading"><span class="vic-circled request-number"></span><button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right" data-action="remove-block"><i class="fa fa-trash-o"></i></button></div><div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form"></div></div></li>');
-        var currentFormContainer = $newLinkContainer.before($newFormContainer);
-        $vic('.vic-nl-form', $newFormContainer).append(newForm);
-    }
- 
- 
-    $vic(document).on('click', 'button[data-action="remove-block"]', function(e) {
-        e.preventDefault();
-        $vic(this).parents('li').remove();
-    });
-</script>
+    <script type="text/javascript">
+
+        var collectionHolder = $vic('ul.vic-items');
+        var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block"><img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}</a>');
+        var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
+
+        $vic(document).ready(function () {
+
+            // Disable entity select when we submit the form
+            $vic('form#{{form.sliderItems.vars.attr.id}}').on('submit', function (e) {
+                $vic('select.add_{{form.sliderItems.vars.attr.id}}_link').prop('disabled', true);
+            });
+
+            //Add new element link
+            collectionHolder.append($newLinkContainer);
+
+            //Add item event
+            $addItemLink.on('click', function (e) {
+                e.preventDefault();
+                addItemForm(collectionHolder, $newLinkContainer);
+            });
+
+        });
+
+        //Remove item event
+        $vic(document).on('click', 'button[data-action="remove-block"]', function (e) {
+            e.preventDefault();
+            $vic(this).parents('li').remove();
+        });
+
+        //Get prototype attribute, replace __name__ according to collection length and append element in dom
+        function addItemForm(collectionHolder, $newLinkContainer) {
+            var prototype = collectionHolder.attr('data-prototype');
+            var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+            var $newFormContainer = $vic('<li class="vic-col-lg-12 vic-request-block"><div class="vic-panel vic-panel-default"><div class="vic-panel-heading"><span class="vic-circled request-number"></span><button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right" data-action="remove-block"><i class="fa fa-trash-o"></i></button></div><div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form"></div></div></li>');
+            $newLinkContainer.before($newFormContainer);
+            $vic('.vic-nl-form', $newFormContainer).append(newForm);
+        }
+
+    </script>
 </div>
