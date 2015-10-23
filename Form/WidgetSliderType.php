@@ -57,7 +57,8 @@ class WidgetSliderType extends WidgetType
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA,
             function(FormEvent $event) {
-                self::manageLibrary($event->getForm(), $event->getData()->getLibrary());
+                $library = $event->getData()->getLibrary() !== null ? $event->getData()->getLibrary() : 'bootstrap';
+                self::manageLibrary($event->getForm(), $library);
                 self::manageAutoplaySpeed($event->getForm(), $event->getData()->getAutoplay());
             }
         );
@@ -65,7 +66,8 @@ class WidgetSliderType extends WidgetType
         $builder->addEventListener(
             FormEvents::PRE_SUBMIT,
             function(FormEvent $event) {
-                self::manageLibrary($event->getForm(), $event->getData()['library']);
+                $library = $event->getData()['library'] !== null ? $event->getData()['library'] : 'bootstrap';
+                self::manageLibrary($event->getForm(), $library);
                 $autoplay = (array_key_exists('autoplay', $event->getData()) && $event->getData()['autoplay']);
                 self::manageAutoplaySpeed($event->getForm(), $autoplay);
             }
@@ -123,7 +125,7 @@ class WidgetSliderType extends WidgetType
         }
     }
 
-    private function manageLibrary(FormInterface $form, $library = 'bootstrap')
+    private function manageLibrary(FormInterface $form, $library)
     {
         $form->add('library', 'choice', array(
             'label' => 'widget_slider.form.library.label',
