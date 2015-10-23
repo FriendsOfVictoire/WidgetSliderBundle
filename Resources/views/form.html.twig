@@ -42,8 +42,8 @@
  
     var collectionHolder = $vic('ul.vic-items');
     // ajoute un lien « add a item »
-    var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block"><img src="/bundles/victoirecms/images/addWidget-icon.png"> Ajouter un nouvel élément</a>');
- 
+    var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block"><img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}</a>');
+
     var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
  
     $vic(document).ready(function() {

@@ -50,10 +50,6 @@
                 <source>form.slideritem.image.label</source>
                 <target>Image</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.image.label">
-                <source>form.slideritem.image.label</source>
-                <target>Image</target>
-            </trans-unit>
             <trans-unit resname="widget_slider.form.library.label">
                 <source>widget_slider.form.library.label</source>
                 <target>Librairie</target>
@@ -79,8 +75,12 @@
             <trans-unit resname="widget_slider.form.library.slick.help">
                 <source>widget_slider.form.library.slick.help</source>
                 <target>
-                    <![CDATA[Le slider Slick s'adapte parfaitement à tous les supports. Il est entièrement responsive et permet de passer d'une slide à l'autre en glissant l'image (comme sur tablette et mobile). Il est ici proposé avec des flèches pour naviguer de chaque côté de l'image.</br>
+                    <![CDATA[Le slider Slick s'adapte parfaitement à tous les supports.</br>Il est entièrement responsive et permet de passer d'une slide à l'autre en glissant l'image (comme sur tablette et mobile).</br>Par défaut, il intègre des flèches de navigation, de chaque côté de l'image.</br>
                     <a href="http://kenwheeler.github.io/slick" target="_blank">http://kenwheeler.github.io/slick</a>]]></target>
+            </trans-unit>
+            <trans-unit resname="widget_slider.form.add.label">
+                <source>widget_slider.form.add.label</source>
+                <target>Ajouter un élément</target>
             </trans-unit>
         </body>
     </file>
