@@ -12,7 +12,7 @@ If you haven't already, you can follow the steps to set up Victoire *[here](http
 
 ##Install the bundle
 
-    php composer.phar require victoire/slider-widget
+    php composer.phar require friendsofvictoire/slider-widget
 
 This bundle requires to install the [Listing bundle](https://github.com/FriendsOfVictoire/WidgetListingBundle)*
 
