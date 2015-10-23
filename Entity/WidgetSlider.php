@@ -38,7 +38,7 @@ class WidgetSlider extends WidgetListing
     /**
      * @ORM\Column(name="autoplaySpeed", type="string", length=255)
      */
-    protected $autoplaySpeed;
+    protected $autoplaySpeed = 0;
 
     /**
      * Constructor
