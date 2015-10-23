@@ -7,7 +7,7 @@
 
 <div id="slick-{{ widget.id }}">
     {% for item in widget.sliderItems %}
-        {% embed 'VictoireWidgetSliderBundle::showItem.html.twig' %}
+        {% embed 'VictoireWidgetSliderBundle::_item.html.twig' %}
 
             {% block background_image %}
                 {{ item.image.url }}
