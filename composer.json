@@ -2,7 +2,7 @@
     "name": "friendsofvictoire/slider-widget",
     "type": "symfony-bundle",
     "description": "Victoire DCMS Slider Widget",
-    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "Dynamic", "CMS", "Slider"],
+    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "Slider"],
     "homepage": "http://victoire.io",
     "license": "MIT",
     "authors": [
@@ -18,8 +18,8 @@
     "require": {
         "php"                      : ">=5.3.3",
         "symfony/framework-bundle" : "~2.3",
-        "victoire/victoire"        : "dev-master",
-        "friendsofvictoire/listing-widget" : "dev-master"
+        "victoire/victoire"        : "~1.3.0",
+        "friendsofvictoire/listing-widget" : "~1.3.0"
     },
     "autoload": {
         "psr-0": { "Victoire\\Widget\\SliderBundle": "" }
