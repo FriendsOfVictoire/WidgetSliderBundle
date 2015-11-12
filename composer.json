@@ -1,29 +1,45 @@
 {
-    "name": "friendsofvictoire/slider-widget",
-    "type": "symfony-bundle",
-    "description": "Victoire DCMS Slider Widget",
-    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "Slider"],
-    "homepage": "http://victoire.io",
-    "license": "MIT",
-    "authors": [
+    "name"             : "friendsofvictoire/slider-widget",
+    "type"             : "symfony-bundle",
+    "description"      : "Victoire DCMS Slider Widget",
+    "keywords"         : [
+        "DCMS",
+        "Victoire",
+        "widget",
+        "FriendsofVictoire",
+        "FoV",
+        "Dynamic",
+        "CMS",
+        "Slider"
+    ],
+    "homepage"         : "http://victoire.io",
+    "license"          : "MIT",
+    "authors"          : [
         {
-            "name": "Leny Bernard",
+            "name" : "Leny Bernard",
             "email": "leny@victoire.io"
         },
         {
-            "name": "Grégoire Humeau",
+            "name" : "Grégoire Humeau",
             "email": "gregoire@victoire.io"
         }
     ],
-    "require": {
-        "php"                      : ">=5.3.3",
-        "symfony/framework-bundle" : "~2.3",
-        "victoire/victoire"        : "~1.3.0",
-        "friendsofvictoire/listing-widget" : "~1.3.0"
+    "require"          : {
+        "php"                             : ">=5.3.3",
+        "symfony/framework-bundle"        : "~2.3",
+        "victoire/victoire"               : "~1.3.0",
+        "friendsofvictoire/listing-widget": "1.3.x-dev"
     },
-    "autoload": {
-        "psr-0": { "Victoire\\Widget\\SliderBundle": "" }
+    "autoload"         : {
+        "psr-0": {
+            "Victoire\\Widget\\SliderBundle": ""
+        }
     },
     "minimum-stability": "dev",
-    "target-dir": "Victoire/Widget/SliderBundle"
+    "target-dir"       : "Victoire/Widget/SliderBundle",
+    "extra"            : {
+        "branch-alias": {
+            "dev-master": "1.3.x-dev"
+        }
+    }
 }
