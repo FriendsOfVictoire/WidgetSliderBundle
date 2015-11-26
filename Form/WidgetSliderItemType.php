@@ -40,6 +40,9 @@ class WidgetSliderItemType extends WidgetType
             ->add('image', 'media', [
                 'label' => 'form.slideritem.image.label',
             ])
+            ->add('enabled', 'checkbox', [
+                'label' => 'form.slideritem.enabled.label',
+            ])
         ;
     }
 
