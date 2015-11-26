@@ -94,6 +94,10 @@
                 <source>form.slideritem.deprecated</source>
                 <target>Ce champs est déprécié et sera supprimé à la prochaine mise à jour, merci de ne plus l'utiliser </target>
             </trans-unit>
+            <trans-unit resname="form.slideritem.enabled.label">
+                <source>form.slideritem.enabled.label</source>
+                <target>Activé ce slider ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

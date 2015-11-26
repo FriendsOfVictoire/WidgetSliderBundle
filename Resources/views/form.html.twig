@@ -38,7 +38,20 @@
                                     data-action="remove-block"><i class="fa fa-trash-o"></i></button>
                         </div>
                         <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
-                            {{ form_widget(item) }}
+                            <div class="vic-row">
+                                <div class="vic-col-md-4">
+                                    {{ form_row(item.image) }}
+                                </div>
+                                <div class="vic-col-md-4">
+                                    {{ form_row(item.enabled) }}
+                                    {{ form_row(item.title) }}
+                                    {{ form_row(item.subtitle) }}
+                                </div>
+                                <div class="vic-col-md-4">
+                                    {{ form_widget(item.link) }}
+                                    {{ form_row(item.linkLabel) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
