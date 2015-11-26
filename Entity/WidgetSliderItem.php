@@ -33,6 +33,13 @@ class WidgetSliderItem extends WidgetListingItem
     /**
      * @var string
      *
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    protected $enabled;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="link_label", type="string", length=55, nullable=true)
      * @deprecated
      */
@@ -183,6 +190,22 @@ class WidgetSliderItem extends WidgetListingItem
         $this->subtitle = $subtitle;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param string $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
     }
 
 }
