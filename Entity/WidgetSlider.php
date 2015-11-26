@@ -47,6 +47,7 @@ class WidgetSlider extends WidgetListing
     public function __construct()
     {
         $this->sliderItems = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bullets = true;
     }
 
     /**
