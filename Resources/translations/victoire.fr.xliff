@@ -90,6 +90,10 @@
                 <source>victoire.slider.reduce.active</source>
                 <target>Étendre tous les éléments</target>
             </trans-unit>
+            <trans-unit resname="form.slideritem.deprecated">
+                <source>form.slideritem.deprecated</source>
+                <target>Ce champs est déprécié et sera supprimé à la prochaine mise à jour, merci de ne plus l'utiliser </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
