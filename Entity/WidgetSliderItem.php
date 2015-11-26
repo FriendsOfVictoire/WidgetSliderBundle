@@ -16,6 +16,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class WidgetSliderItem extends WidgetListingItem
 {
+    /**
+     * @deprecated
+     */
     use \Victoire\Bundle\WidgetBundle\Entity\Traits\LinkTrait;
 
     /**

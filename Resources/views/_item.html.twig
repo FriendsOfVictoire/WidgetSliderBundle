@@ -1,17 +1,19 @@
 {% spaceless %}
 
     <div class="item{% if class is defined %} {{ class }}{% endif %}" style="background-image:url({% block background_image %}{% endblock %})">
+        {# DEPRECATED #}
+            {% block title %}
+                <h2>{% block title_content %}{% endblock %}</h2>
+            {% endblock %}
 
-        {% block title %}
-            <h2>{% block title_content %}{% endblock %}</h2>
-        {% endblock %}
+            {% block subtitle %}
+                <h3>{% block subtitle_content %}{% endblock %}</h3>
+            {% endblock %}
 
-        {% block subtitle %}
-            <h3>{% block subtitle_content %}{% endblock %}</h3>
-        {% endblock %}
+            {% block link %}{% endblock %}
+        {# END DEPRECATED #}
 
-        {% block link %}{% endblock %}
-
+        {{ cms_slot_widgets('victoire_slider_' + item.id) }}
     </div>
 
 {% endspaceless %}
