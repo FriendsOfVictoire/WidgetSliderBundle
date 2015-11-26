@@ -27,6 +27,7 @@ class WidgetSlider extends WidgetListing
 
     /**
      * @ORM\Column(name="bullets", type="boolean")
+     * @deprecated
      */
     protected $bullets;
 
