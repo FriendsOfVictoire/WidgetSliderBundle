@@ -82,6 +82,14 @@
                 <source>widget_slider.form.add.label</source>
                 <target>Ajouter un élément</target>
             </trans-unit>
+            <trans-unit resname="victoire.slider.reduce">
+                <source>victoire.slider.reduce</source>
+                <target>Réduire tous les éléments</target>
+            </trans-unit>
+            <trans-unit resname="victoire.slider.reduce.active">
+                <source>victoire.slider.reduce.active</source>
+                <target>Étendre tous les éléments</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
