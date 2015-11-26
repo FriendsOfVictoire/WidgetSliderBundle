@@ -1,19 +1,38 @@
+{% trans_default_domain "victoire" %}
+
+<style>
+    .vic-drag-and-drop {
+        position: absolute;
+        top: 15px;
+        left: -10px;
+    }
+    .vic-reduce {
+        margin: 30px 0 30px 17px;
+    }
+</style>
+
 <div id="picker-static" class="vic-tab-pane vic-active">
     {{ form_start(form) }}
-    <div class="col-md-4">
-        {{ form_row(form.library) }}
-        {{ form_row(form.bullets) }}
-        <div class="clearfix">
-            {{ form_row(form.autoplay) }}
+    <div class="vic-col-md-12">
+        <div class="vic-row">
+            <div class="vic-col-md-4">
+                {{ form_row(form.library) }}
+            </div>
+            <div class="vic-col-md-offset-4 vic-col-md-4 text-right">
+                {{ form_row(form.autoplay) }}
+                {{ (form.autoplaySpeed is defined) ? form_row(form.autoplaySpeed, {attr: {style: 'max-width: 212px; float: right;'}}) }}
+            </div>
         </div>
-        {{ (form.autoplaySpeed is defined) ? form_row(form.autoplaySpeed) }}
     </div>
-    <div class="col-md-8">
+    <div class="vic-col-sm-12"><hr></div>
+    <div class="col-sm-12">
+        <button class="vic-btn vic-btn-primary vic-reduce">{{ 'victoire.slider.reduce'|trans }}</button>
         <ul class="vic-row vic-items" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
             {% for item in form.sliderItems %}
-                <li class="vic-col-lg-12 vic-request-block">
+                <li class="vic-col-sm-12 vic-request-block">
                     <div class="vic-panel vic-panel-default">
-                        <div class="vic-panel-heading">
+                        <i class="fa fa-arrows fa-lg vic-drag-and-drop"></i>
+                        <div class="vic-panel-heading expand">
                             <span class="vic-circled request-number"></span>
                             <button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right"
                                     data-action="remove-block"><i class="fa fa-trash-o"></i></button>
@@ -32,6 +51,28 @@
     {{ form_end(form) }}
 
     <script type="text/javascript">
+        $vic('.vic-reduce').on('click', function(e){
+            e.preventDefault();
+            if ($vic(this).hasClass('active')) {
+                $vic(this).removeClass('active').html('{{ 'victoire.slider.reduce'|trans }}');
+                $vic('.vic-panel-body').slideDown();
+                $vic('.expand').removeClass('active');
+            } else {
+                $vic(this).addClass('active').html('{{ 'victoire.slider.reduce.active'|trans }}');
+                $vic('.vic-panel-body').slideUp();
+                $vic('.expand').addClass('active');
+            }
+        });
+        $vic('.expand').css('cursor', 'pointer').on('click', function(e){
+            e.preventDefault();
+            if ($vic(this).hasClass('active')) {
+                $vic(this).removeClass('active');
+                $vic(this).siblings('.vic-panel-body').slideDown();
+            } else {
+                $vic(this).addClass('active');
+                $vic(this).siblings('.vic-panel-body').slideUp();
+            }
+        });
 
         var collectionHolder = $vic('ul.vic-items');
         var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block"><img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}</a>');
