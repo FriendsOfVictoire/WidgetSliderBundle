@@ -31,7 +31,7 @@ class WidgetSliderItem extends WidgetListingItem
      * @var string
      *
      * @ORM\Column(name="link_label", type="string", length=55, nullable=true)
-     * @Assert\NotBlank()
+     * @deprecated
      */
     protected $linkLabel;
 
@@ -40,6 +40,7 @@ class WidgetSliderItem extends WidgetListingItem
      *
      * @ORM\Column(name="subtitle", type="string", length=255, nullable=true)
      * @VIC\ReceiverProperty("textable")
+     * @deprecated
      */
     protected $subtitle;
 
@@ -49,7 +50,6 @@ class WidgetSliderItem extends WidgetListingItem
      * @ORM\ManyToOne(targetEntity="\Victoire\Bundle\MediaBundle\Entity\Media")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id", onDelete="CASCADE")
      * @VIC\ReceiverProperty("imageable")
-     *
      */
     protected $image;
 
