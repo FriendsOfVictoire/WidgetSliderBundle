@@ -96,11 +96,11 @@
             </trans-unit>
             <trans-unit resname="victoire.slider.reduce.active">
                 <source>victoire.slider.reduce.active</source>
-                <target>Extend all elements</target>
+                <target>Expand all elements</target>
             </trans-unit>
             <trans-unit resname="form.slideritem.deprecated">
                 <source>form.slideritem.deprecated</source>
-                <target>This field is deprecated and will be remove to the next major update, thanks to don't use it again.</target>
+                <target>This field is deprecated and will be remove to the next major update. Please do not use it again.</target>
             </trans-unit>
             <trans-unit resname="form.slideritem.enabled.label">
                 <source>form.slideritem.enabled.label</source>

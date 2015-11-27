@@ -90,6 +90,22 @@
                 <source>widget_slider.form.add.label</source>
                 <target>Add a new item</target>
             </trans-unit>
+            <trans-unit resname="victoire.slider.reduce">
+                <source>victoire.slider.reduce</source>
+                <target>Reducir todos los elementos</target>
+            </trans-unit>
+            <trans-unit resname="victoire.slider.reduce.active">
+                <source>victoire.slider.reduce.active</source>
+                <target>Expandir todos los elementos</target>
+            </trans-unit>
+            <trans-unit resname="form.slideritem.deprecated">
+                <source>form.slideritem.deprecated</source>
+                <target>Este campo es obsoleto y será eliminar a la próxima gran actualización. Por favor, no use de nuevo.</target>
+            </trans-unit>
+            <trans-unit resname="form.slideritem.enabled.label">
+                <source>form.slideritem.enabled.label</source>
+                <target>¿ Diapositiva activa ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
