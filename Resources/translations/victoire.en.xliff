@@ -90,6 +90,22 @@
                 <source>widget_slider.form.add.label</source>
                 <target>Add a new item</target>
             </trans-unit>
+            <trans-unit resname="victoire.slider.reduce">
+                <source>victoire.slider.reduce</source>
+                <target>Reduce all elements</target>
+            </trans-unit>
+            <trans-unit resname="victoire.slider.reduce.active">
+                <source>victoire.slider.reduce.active</source>
+                <target>Extend all elements</target>
+            </trans-unit>
+            <trans-unit resname="form.slideritem.deprecated">
+                <source>form.slideritem.deprecated</source>
+                <target>This field is deprecated and will be remove to the next major update, thanks to don't use it again.</target>
+            </trans-unit>
+            <trans-unit resname="form.slideritem.enabled.label">
+                <source>form.slideritem.enabled.label</source>
+                <target>Active slide ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
