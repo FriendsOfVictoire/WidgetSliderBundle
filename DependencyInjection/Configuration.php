@@ -23,9 +23,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('name')->defaultValue('widgetslider')->end()
                 ->scalarNode('widgetName')->defaultValue('Slider')->end()
-            ->end()
-            // Here you should define the parameters that are allowed to configure your bundle.
-        ;
+            ->end();
 
         return $treeBuilder;
     }
