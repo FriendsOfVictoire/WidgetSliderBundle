@@ -1,11 +1,12 @@
 <?php
+
 namespace Victoire\Widget\SliderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Victoire\Widget\ListingBundle\Entity\WidgetListing;
 
 /**
- * WidgetList Slider
+ * WidgetList Slider.
  *
  * @ORM\Table("vic_widget_slider")
  * @ORM\Entity
@@ -16,7 +17,7 @@ class WidgetSlider extends WidgetListing
      * @var string
      *
      * @ORM\OneToMany(targetEntity="WidgetSliderItem", mappedBy="slider", cascade={"persist", "remove"}, orphanRemoval=true)
-     *
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     protected $sliderItems;
 
@@ -27,6 +28,8 @@ class WidgetSlider extends WidgetListing
 
     /**
      * @ORM\Column(name="bullets", type="boolean")
+     *
+     * @deprecated
      */
     protected $bullets;
 
@@ -41,15 +44,17 @@ class WidgetSlider extends WidgetListing
     protected $autoplaySpeed = 0;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
         $this->sliderItems = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bullets = true;
     }
 
     /**
-     * Set sliderItems
+     * Set sliderItems.
+     *
      * @param array $sliderItems
      *
      * @return WidgetListing
@@ -63,8 +68,10 @@ class WidgetSlider extends WidgetListing
 
         return $this;
     }
+
     /**
-     * Add sliderItems
+     * Add sliderItems.
+     *
      * @param WidgetListingItem $sliderItem
      *
      * @return WidgetListing
@@ -78,7 +85,8 @@ class WidgetSlider extends WidgetListing
     }
 
     /**
-     * Remove sliderItems
+     * Remove sliderItems.
+     *
      * @param \Victoire\Widget\ListingBundle\Entity\WidgetListingItem $sliderItems
      */
     public function removeSliderItem(\Victoire\Widget\ListingBundle\Entity\WidgetListingItem $sliderItems)
@@ -87,7 +95,7 @@ class WidgetSlider extends WidgetListing
     }
 
     /**
-     * Get sliderItems
+     * Get sliderItems.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -175,5 +183,4 @@ class WidgetSlider extends WidgetListing
 
         return $this;
     }
-
 }

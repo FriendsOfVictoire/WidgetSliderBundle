@@ -1,0 +1,9 @@
+{
+    "require_all":
+    {
+        "stylesheets":
+        {
+            "victoire-edit": "@VictoireWidgetSliderBundle/Resources/public/css/style_slider.scss"
+        }
+    }
+}

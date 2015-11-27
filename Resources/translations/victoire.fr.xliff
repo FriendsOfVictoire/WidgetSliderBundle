@@ -82,6 +82,22 @@
                 <source>widget_slider.form.add.label</source>
                 <target>Ajouter un élément</target>
             </trans-unit>
+            <trans-unit resname="victoire.slider.reduce">
+                <source>victoire.slider.reduce</source>
+                <target>Réduire tous les éléments</target>
+            </trans-unit>
+            <trans-unit resname="victoire.slider.reduce.active">
+                <source>victoire.slider.reduce.active</source>
+                <target>Étendre tous les éléments</target>
+            </trans-unit>
+            <trans-unit resname="form.slideritem.deprecated">
+                <source>form.slideritem.deprecated</source>
+                <target>Ce champs est déprécié et sera supprimé à la prochaine mise à jour, merci de ne plus l'utiliser </target>
+            </trans-unit>
+            <trans-unit resname="form.slideritem.enabled.label">
+                <source>form.slideritem.enabled.label</source>
+                <target>Activer ce slider ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

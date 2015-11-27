@@ -1,55 +1,73 @@
 <?php
+
 namespace Victoire\Widget\SliderBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
 use Victoire\Bundle\WidgetBundle\Entity\Widget;
 
 /**
- * The form for the widget listing slider
- *
+ * The form for the widget listing slider.
  */
 class WidgetSliderItemType extends WidgetType
 {
     /**
-     * define form fields
+     * define form fields.
+     *
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', null, array(
-                'label' => 'form.slideritem.title.label'))
-            ->add('subtitle', null, array(
-                'label' => 'form.slideritem.subtitle.label'))
-            ->add('link', 'victoire_link', array(
-                'label' => 'form.slideritem.linkUrl.label'))
-            ->add('linkLabel', null, array(
-                'label' => 'form.slideritem.linkLabel.label'))
-            ->add('image', 'media', array(
-                'label' => 'form.slideritem.image.label'));
+            ->add('title', null, [
+                'label'          => 'form.slideritem.title.label',
+                'vic_help_block' => 'form.slideritem.deprecated',
+            ])
+            ->add('subtitle', null, [
+                'label'          => 'form.slideritem.subtitle.label',
+                'vic_help_block' => 'form.slideritem.deprecated',
+            ])
+            ->add('link', 'victoire_link', [
+                'label'          => 'form.slideritem.linkUrl.label',
+                'vic_help_block' => 'form.slideritem.deprecated',
+            ])
+            ->add('linkLabel', null, [
+                'label'          => 'form.slideritem.linkLabel.label',
+                'vic_help_block' => 'form.slideritem.deprecated',
+            ])
+            ->add('image', 'media', [
+                'label' => 'form.slideritem.image.label',
+            ])
+            ->add('enabled', 'checkbox', [
+                'label' => 'form.slideritem.enabled.label',
+            ])
+            ->add('position', 'hidden', [
+                'attr' => [
+                    'class' => 'vic-position',
+                ],
+            ]);
     }
 
     /**
-     * bind form to WidgetSliderItem entity
+     * bind form to WidgetSliderItem entity.
+     *
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
 
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\SliderBundle\Entity\WidgetSliderItem',
             'widget'             => null,
-            'translation_domain' => 'victoire'
-        ));
+            'translation_domain' => 'victoire',
+        ]);
     }
 
     /**
-     * get form name
+     * get form name.
      *
      * @return string The form name
      */

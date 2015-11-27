@@ -4,22 +4,24 @@ namespace Victoire\Widget\SliderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Victoire\Bundle\CoreBundle\Annotations as VIC;
-use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 use Victoire\Bundle\MediaBundle\Entity\Media;
-use Symfony\Component\Validator\Constraints as Assert;
+use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 
 /**
- * WidgetSliderItem
+ * WidgetSliderItem.
  *
  * @ORM\Table("vic_widget_slider_item")
  * @ORM\Entity
  */
 class WidgetSliderItem extends WidgetListingItem
 {
+    /*
+     * @deprecated
+     */
     use \Victoire\Bundle\WidgetBundle\Entity\Traits\LinkTrait;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -30,8 +32,16 @@ class WidgetSliderItem extends WidgetListingItem
     /**
      * @var string
      *
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    protected $enabled;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="link_label", type="string", length=55, nullable=true)
-     * @Assert\NotBlank()
+     *
+     * @deprecated
      */
     protected $linkLabel;
 
@@ -40,6 +50,8 @@ class WidgetSliderItem extends WidgetListingItem
      *
      * @ORM\Column(name="subtitle", type="string", length=255, nullable=true)
      * @VIC\ReceiverProperty("textable")
+     *
+     * @deprecated
      */
     protected $subtitle;
 
@@ -49,7 +61,6 @@ class WidgetSliderItem extends WidgetListingItem
      * @ORM\ManyToOne(targetEntity="\Victoire\Bundle\MediaBundle\Entity\Media")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id", onDelete="CASCADE")
      * @VIC\ReceiverProperty("imageable")
-     *
      */
     protected $image;
 
@@ -58,14 +69,13 @@ class WidgetSliderItem extends WidgetListingItem
      *
      * @ORM\ManyToOne(targetEntity="WidgetSlider", inversedBy="sliderItems")
      * @ORM\JoinColumn(name="listing_id", referencedColumnName="id", onDelete="CASCADE")
-     *
      */
     protected $slider;
 
     /**
-     * Get the id
+     * Get the id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -73,9 +83,9 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Set the id
+     * Set the id.
      *
-     * @param integer $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -83,7 +93,7 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Get fields
+     * Get fields.
      *
      * @return string
      */
@@ -93,7 +103,7 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Set linkLabel
+     * Set linkLabel.
      *
      * @param string $linkLabel
      *
@@ -107,7 +117,7 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Get linkLabel
+     * Get linkLabel.
      *
      * @return string
      */
@@ -117,9 +127,10 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Set image
+     * Set image.
      *
-     * @param  Media       $image
+     * @param Media $image
+     *
      * @return WidgetImage
      */
     public function setImage(Media $image)
@@ -130,7 +141,7 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Get image
+     * Get image.
      *
      * @return Media
      */
@@ -140,9 +151,10 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Set slider
+     * Set slider.
      *
-     * @param  WidgetSlider     $slider
+     * @param WidgetSlider $slider
+     *
      * @return WidgetSliderItem
      */
     public function setSlider($slider)
@@ -153,7 +165,7 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
-     * Get slider
+     * Get slider.
      *
      * @return string
      */
@@ -182,4 +194,19 @@ class WidgetSliderItem extends WidgetListingItem
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param string $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
 }
