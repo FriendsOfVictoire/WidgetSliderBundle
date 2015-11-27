@@ -27,7 +27,7 @@
     <div class="vic-col-sm-12"><hr></div>
     <div class="col-sm-12">
         <button class="vic-btn vic-btn-primary vic-reduce">{{ 'victoire.slider.reduce'|trans }}</button>
-        <ul class="vic-row vic-items" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
+        <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
             {% for item in form.sliderItems %}
                 <li class="vic-col-sm-12 vic-request-block">
                     <div class="vic-panel vic-panel-default">
@@ -41,6 +41,7 @@
                             <div class="vic-row">
                                 <div class="vic-col-md-4">
                                     {{ form_row(item.image) }}
+                                    {{ form_row(item.position) }}
                                 </div>
                                 <div class="vic-col-md-4">
                                     {{ form_row(item.enabled) }}
@@ -64,6 +65,21 @@
     {{ form_end(form) }}
 
     <script type="text/javascript">
+        $vic('.vic-sortable').sortable({
+            axis: 'y',
+            cancel: ".vic-add",
+            items: "> li",
+            opacity: 0.5,
+            stop: function(event, ui){
+                var item = ui.item;
+                var inputs = $vic('.vic-position');
+                inputs.each(function(index){
+                    $(this).val(index);
+                });
+            }
+        });
+        $vic('.vic-sortable').disableSelection();
+
         $vic('.vic-reduce').on('click', function(e){
             e.preventDefault();
             if ($vic(this).hasClass('active')) {
@@ -89,7 +105,7 @@
 
         var collectionHolder = $vic('ul.vic-items');
         var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block"><img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}</a>');
-        var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
+        var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8 vic-add"></li>').append($addItemLink);
 
         $vic(document).ready(function () {
 

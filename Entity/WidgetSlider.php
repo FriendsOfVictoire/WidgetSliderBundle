@@ -16,7 +16,7 @@ class WidgetSlider extends WidgetListing
      * @var string
      *
      * @ORM\OneToMany(targetEntity="WidgetSliderItem", mappedBy="slider", cascade={"persist", "remove"}, orphanRemoval=true)
-     *
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     protected $sliderItems;
 
