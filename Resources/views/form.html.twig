@@ -144,6 +144,7 @@
             $vic($newFormContainer).find("input, select, textarea").on('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e){
                 e.stopImmediatePropagation();
             });
+            $vic($newFormContainer).find(".vic-position").val($vic(".vic-position").length);
         }
 
     </script>
