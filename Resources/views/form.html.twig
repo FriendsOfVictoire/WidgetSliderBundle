@@ -78,7 +78,10 @@
                 });
             }
         });
-        $vic('.vic-sortable').disableSelection();
+
+        $vic("input, select, textarea").on('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e){
+            e.stopImmediatePropagation();
+        });
 
         $vic('.vic-reduce').on('click', function(e){
             e.preventDefault();
@@ -138,6 +141,9 @@
             var $newFormContainer = $vic('<li class="vic-col-sm-12 vic-request-block"><div class="vic-panel vic-panel-default"><i class="fa fa-arrows fa-lg vic-drag-and-drop"></i><div class="vic-panel-heading expand"><span class="vic-circled request-number"></span><button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right" data-action="remove-block"><i class="fa fa-trash-o"></i></button></div><div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form"></div></div></li>');
             $newLinkContainer.before($newFormContainer);
             $vic('.vic-nl-form', $newFormContainer).append(newForm);
+            $vic($newFormContainer).find("input, select, textarea").on('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e){
+                e.stopImmediatePropagation();
+            });
         }
 
     </script>
