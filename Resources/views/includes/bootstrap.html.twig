@@ -4,7 +4,7 @@
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
 {% endstylesheets %}
 
-<div id="carousel-{{ widget.id }}" class="carousel slide" data-ride="carousel" data-interval="0">
+<div id="carousel-{{ widget.id }}" class="carousel slide" data-ride="carousel" data-interval="0" style="min-height: 200px;">
     {% if widget.bullets %}
         <ol class="carousel-indicators">
             {% for item in widget.sliderItems %}

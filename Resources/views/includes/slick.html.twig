@@ -5,7 +5,7 @@
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
 {% endstylesheets %}
 
-<div id="slick-{{ widget.id }}">
+<div id="slick-{{ widget.id }}" style="min-height: 200px;">
     {% for item in widget.sliderItems %}
         {% embed 'VictoireWidgetSliderBundle::_item.html.twig' %}
             {% block background_image %}{{ item.image.url }}{% endblock %}
