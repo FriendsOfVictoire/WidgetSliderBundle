@@ -1,7 +1,7 @@
 {% spaceless %}
     {% if item.enabled %}
         <div class="item{% if class is defined %} {{ class }}{% endif %}" style="{% if widget.containerHeight is defined and widget.containerHeight %}min-height: {{ widget.containerHeight }}; {% endif %}">
-            {{ cms_slot_widgets('victoire_slider_' + item.id) }}
+            {{ cms_slot_widgets('victoire_slider_' ~ item.id) }}
         </div>
     {% endif %}
 {% endspaceless %}
