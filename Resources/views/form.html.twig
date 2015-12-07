@@ -39,18 +39,16 @@
                         </div>
                         <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
                             <div class="vic-row">
-                                <div class="vic-col-md-4">
-                                    {{ form_row(item.image) }}
+                                <div class="vic-col-md-3">
+                                    {{ form_row(item.enabled) }}
                                     {{ form_row(item.position) }}
                                 </div>
-                                <div class="vic-col-md-4">
-                                    {{ form_row(item.enabled) }}
-                                    {{ form_row(item.title) }}
-                                    {{ form_row(item.subtitle) }}
-                                </div>
-                                <div class="vic-col-md-4">
-                                    {{ form_widget(item.link) }}
-                                    {{ form_row(item.linkLabel) }}
+                                <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
+                                    <div class="vic-mask">
+                                        {% if item.vars.data.id is defined %}
+                                            {{ cms_slot_widgets('victoire_slider_' ~ item.vars.data.id) }}
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
