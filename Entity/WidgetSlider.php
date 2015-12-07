@@ -2,8 +2,10 @@
 
 namespace Victoire\Widget\SliderBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Victoire\Widget\ListingBundle\Entity\WidgetListing;
+use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 
 /**
  * WidgetList Slider.
@@ -27,13 +29,6 @@ class WidgetSlider extends WidgetListing
     protected $library;
 
     /**
-     * @ORM\Column(name="bullets", type="boolean")
-     *
-     * @deprecated
-     */
-    protected $bullets;
-
-    /**
      * @ORM\Column(name="autoplay", type="boolean")
      */
     protected $autoplay;
@@ -48,8 +43,7 @@ class WidgetSlider extends WidgetListing
      */
     public function __construct()
     {
-        $this->sliderItems = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->bullets = true;
+        $this->sliderItems = new ArrayCollection();
     }
 
     /**
@@ -76,7 +70,7 @@ class WidgetSlider extends WidgetListing
      *
      * @return WidgetListing
      */
-    public function addSliderItem(\Victoire\Widget\ListingBundle\Entity\WidgetListingItem $sliderItem)
+    public function addSliderItem(WidgetListingItem $sliderItem)
     {
         $sliderItem->setSlider($this);
         $this->sliderItems[] = $sliderItem;
@@ -87,9 +81,9 @@ class WidgetSlider extends WidgetListing
     /**
      * Remove sliderItems.
      *
-     * @param \Victoire\Widget\ListingBundle\Entity\WidgetListingItem $sliderItems
+     * @param WidgetListingItem $sliderItems
      */
-    public function removeSliderItem(\Victoire\Widget\ListingBundle\Entity\WidgetListingItem $sliderItems)
+    public function removeSliderItem(WidgetListingItem $sliderItems)
     {
         $this->sliderItems->removeElement($sliderItems);
     }
@@ -160,26 +154,6 @@ class WidgetSlider extends WidgetListing
     public function setAutoplaySpeed($autoplaySpeed)
     {
         $this->autoplaySpeed = $autoplaySpeed;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBullets()
-    {
-        return $this->bullets;
-    }
-
-    /**
-     * @param mixed $bullets
-     *
-     * @return $this
-     */
-    public function setBullets($bullets)
-    {
-        $this->bullets = $bullets;
 
         return $this;
     }

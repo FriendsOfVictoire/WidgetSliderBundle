@@ -21,25 +21,6 @@ class WidgetSliderItemType extends WidgetType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', null, [
-                'label'          => 'form.slideritem.title.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('subtitle', null, [
-                'label'          => 'form.slideritem.subtitle.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('link', 'victoire_link', [
-                'label'          => 'form.slideritem.linkUrl.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('linkLabel', null, [
-                'label'          => 'form.slideritem.linkLabel.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('image', 'media', [
-                'label' => 'form.slideritem.image.label',
-            ])
             ->add('enabled', 'checkbox', [
                 'label' => 'form.slideritem.enabled.label',
             ])
