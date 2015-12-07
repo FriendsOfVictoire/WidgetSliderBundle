@@ -1,6 +1,7 @@
 .carousel.slide {
+    z-index: 1;
+
     .item {
-        min-height: 300px;
         text-align: center;
         float: left;
         width: 100%;
