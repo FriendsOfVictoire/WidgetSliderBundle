@@ -9,11 +9,13 @@ body[role="admin-style"] .vic-widget-slider > .vic-hover-widget {
     opacity: 0.5;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
+    z-index: 1;
+    display: inline-block;
 }
 
 body[role="admin-edit"] .vic-widget-slider,
 body[role="admin-style"] .vic-widget-slider {
-    min-height: 150px;
+    padding-top: 150px;
 }
 
 .vic-mask {
