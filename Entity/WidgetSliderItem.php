@@ -3,8 +3,6 @@
 namespace Victoire\Widget\SliderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Victoire\Bundle\CoreBundle\Annotations as VIC;
-use Victoire\Bundle\MediaBundle\Entity\Media;
 use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 
 /**
@@ -15,7 +13,6 @@ use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
  */
 class WidgetSliderItem extends WidgetListingItem
 {
-
     /**
      * @var int
      *
