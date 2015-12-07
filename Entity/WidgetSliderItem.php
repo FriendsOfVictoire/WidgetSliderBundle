@@ -30,7 +30,7 @@ class WidgetSliderItem extends WidgetListingItem
      *
      * @ORM\Column(name="enabled", type="boolean")
      */
-    protected $enabled;
+    protected $enabled = true;
 
     /**
      * @var string

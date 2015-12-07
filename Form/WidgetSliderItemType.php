@@ -23,6 +23,7 @@ class WidgetSliderItemType extends WidgetType
         $builder
             ->add('enabled', 'checkbox', [
                 'label' => 'form.slideritem.enabled.label',
+                'data' => true
             ])
             ->add('position', 'hidden', [
                 'attr' => [
