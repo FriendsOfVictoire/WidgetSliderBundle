@@ -2,11 +2,28 @@ body[role="admin-edit"] .vic-widget-slider > .vic-hover-widget,
 body[role="admin-style"] .vic-widget-slider > .vic-hover-widget {
     position: absolute;
     left: 20px;
-    top: 90px;
-    height: 50px;
-    width: 50px;
+    top: 0;
+    height: 40px;
+    width: 40px;
     padding: 50px;
     opacity: 0.5;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
+}
+
+.vic-mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .vic-hover-widget, .vic-hover-widget:hover, .vic-hover-widget-unlink:hover {
+        opacity: 0 !important;
+        display: none !important;
+    }
+    &:after {
+        content: ' ';
+        top: 100%;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+    }
 }

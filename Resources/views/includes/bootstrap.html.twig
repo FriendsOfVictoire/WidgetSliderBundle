@@ -5,31 +5,15 @@
 {% endstylesheets %}
 
 <div id="carousel-{{ widget.id }}" class="carousel slide" data-ride="carousel" data-interval="0">
-    {% if widget.bullets %}
-        <ol class="carousel-indicators">
-            {% for item in widget.sliderItems %}
-                <li data-target="#carousel-{{ widget.id }}" data-slide-to="{{ loop.index0 }}"{% if loop.first %} class="active"{% endif %}></li>
-            {% endfor %}
-        </ol>
-    {% endif %}
+    <ol class="carousel-indicators">
+        {% for item in widget.sliderItems %}
+            <li data-target="#carousel-{{ widget.id }}" data-slide-to="{{ loop.index0 }}"{% if loop.first %} class="active"{% endif %}></li>
+        {% endfor %}
+    </ol>
     <div class="carousel-inner" role="listbox">
         {% for item in widget.sliderItems %}
             {% set params = loop.first ? {'class' : 'active'} : [] %}
-            {% embed 'VictoireWidgetSliderBundle::_item.html.twig' with params %}
-                {% block background_image %}{{ item.image.url }}{% endblock %}
-
-                {# DEPRECATED #}
-                    {% block title_content %}
-                        {{ (item.title is defined and item.title) ? vic_link(item.link.parameters, item.title) }}
-                    {% endblock %}
-                    {% block subtitle_content %}
-                        {{ (item.subtitle is defined and item.subtitle) ? vic_link(item.link.parameters, item.subtitle) }}
-                    {% endblock %}
-                    {% block link %}
-                        {{ vic_link(item.link.parameters, item.linkLabel) }}
-                    {% endblock %}
-                {# END DEPRECATED #}
-            {% endembed %}
+            {% embed 'VictoireWidgetSliderBundle::_item.html.twig' with params %}{% endembed %}
         {% endfor %}
     </div>
 </div>
