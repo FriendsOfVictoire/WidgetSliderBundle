@@ -96,7 +96,7 @@
             </trans-unit>
             <trans-unit resname="form.slideritem.enabled.label">
                 <source>form.slideritem.enabled.label</source>
-                <target>Activer ce slider ?</target>
+                <target>Activer ce slide ?</target>
             </trans-unit>
         </body>
     </file>
