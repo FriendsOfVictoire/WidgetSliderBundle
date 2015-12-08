@@ -72,3 +72,12 @@
         }
     }
 }
+
+.vic-widget-slider {
+    .slick-slider {
+        display: none;
+        &.slick-initialized {
+            display: block;
+        }
+    }
+}
