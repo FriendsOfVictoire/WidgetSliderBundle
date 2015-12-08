@@ -3,6 +3,10 @@
 namespace Victoire\Widget\SliderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Victoire\Bundle\CoreBundle\Annotations as VIC;
+use Victoire\Bundle\MediaBundle\Entity\Media;
+use Victoire\Bundle\WidgetBundle\Entity\Traits\LinkTrait;
+use Victoire\Widget\ImageBundle\Entity\WidgetImage;
 use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 
 /**
@@ -13,6 +17,8 @@ use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
  */
 class WidgetSliderItem extends WidgetListingItem
 {
+    use LinkTrait;
+
     /**
      * @var int
      *
@@ -28,6 +34,30 @@ class WidgetSliderItem extends WidgetListingItem
      * @ORM\Column(name="enabled", type="boolean")
      */
     protected $enabled = true;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_label", type="string", length=55, nullable=true)
+     */
+    protected $linkLabel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subtitle", type="string", length=255, nullable=true)
+     * @VIC\ReceiverProperty("textable")
+     */
+    protected $subtitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="\Victoire\Bundle\MediaBundle\Entity\Media")
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id", onDelete="CASCADE")
+     * @VIC\ReceiverProperty("imageable")
+     */
+    protected $image;
 
     /**
      * @var string
@@ -58,6 +88,54 @@ class WidgetSliderItem extends WidgetListingItem
     }
 
     /**
+     * Set linkLabel.
+     *
+     * @param string $linkLabel
+     *
+     * @return WidgetSliderItem
+     */
+    public function setLinklabel($linkLabel)
+    {
+        $this->linkLabel = $linkLabel;
+
+        return $this;
+    }
+
+    /**
+     * Get linkLabel.
+     *
+     * @return string
+     */
+    public function getLinklabel()
+    {
+        return $this->linkLabel;
+    }
+
+    /**
+     * Set image.
+     *
+     * @param Media $image
+     *
+     * @return WidgetImage
+     */
+    public function setImage(Media $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image.
+     *
+     * @return Media
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
      * Set slider.
      *
      * @param WidgetSlider $slider
@@ -79,6 +157,26 @@ class WidgetSliderItem extends WidgetListingItem
     public function getSlider()
     {
         return $this->slider;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * @param string $subtitle
+     *
+     * @return $this
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
     }
 
     /**
