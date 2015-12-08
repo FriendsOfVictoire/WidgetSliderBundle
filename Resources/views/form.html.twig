@@ -19,6 +19,7 @@
                 {{ form_row(form.library) }}
             </div>
             <div class="vic-col-md-offset-4 vic-col-md-4 text-right">
+                {{ form_row(form.advanced) }}
                 {{ form_row(form.autoplay) }}
                 {{ (form.autoplaySpeed is defined) ? form_row(form.autoplaySpeed, {attr: {style: 'max-width: 212px; float: right;'}}) }}
             </div>
@@ -38,19 +39,36 @@
                                     data-action="remove-block"><i class="fa fa-trash-o"></i></button>
                         </div>
                         <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
-                            <div class="vic-row">
-                                <div class="vic-col-md-3">
-                                    {{ form_row(item.enabled) }}
-                                    {{ form_row(item.position) }}
-                                </div>
-                                <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
-                                    <div class="vic-mask">
-                                        {% if item.vars.data.id is defined %}
-                                            {{ cms_slot_widgets('victoire_slider_' ~ item.vars.data.id) }}
-                                        {% endif %}
+                            {% if form.advanced.vars.data %}
+                                <div class="vic-row">
+                                    <div class="vic-col-md-3">
+                                        {{ form_row(item.enabled) }}
+                                        {{ form_row(item.position) }}
+                                    </div>
+                                    <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
+                                        <div class="vic-mask">
+                                            {% if item.vars.data.id is defined %}
+                                                {{ cms_slot_widgets('victoire_slider_' ~ item.vars.data.id) }}
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% else %}
+                                <div class="vic-row">
+                                    <div class="vic-col-md-4">
+                                        {{ form_row(item.image) }}
+                                        {{ form_row(item.enabled) }}
+                                        {{ form_row(item.position) }}
+                                    </div>
+                                    <div class="vic-col-md-4">
+                                        {{ form_row(item.title) }}
+                                        {{ form_row(item.subtitle) }}
+                                    </div>
+                                    <div class="vic-col-md-4">
+                                        {{ form_row(item.link) }}
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </li>
