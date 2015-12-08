@@ -48,8 +48,7 @@ class WidgetSliderItemType extends WidgetType
                 'attr' => [
                     'class' => 'vic-position',
                 ],
-            ])
-        ;
+            ]);
     }
 
     /**
