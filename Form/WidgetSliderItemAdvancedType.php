@@ -5,12 +5,11 @@ namespace Victoire\Widget\SliderBundle\Form;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
-use Victoire\Bundle\WidgetBundle\Entity\Widget;
 
 /**
  * The form for the widget listing slider.
  */
-class WidgetSliderItemType extends WidgetType
+class WidgetSliderItemAdvancedType extends WidgetType
 {
     /**
      * define form fields.
@@ -21,25 +20,6 @@ class WidgetSliderItemType extends WidgetType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', null, [
-                'label'          => 'form.slideritem.title.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('subtitle', null, [
-                'label'          => 'form.slideritem.subtitle.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('link', 'victoire_link', [
-                'label'          => 'form.slideritem.linkUrl.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('linkLabel', null, [
-                'label'          => 'form.slideritem.linkLabel.label',
-                'vic_help_block' => 'form.slideritem.deprecated',
-            ])
-            ->add('image', 'media', [
-                'label' => 'form.slideritem.image.label',
-            ])
             ->add('enabled', 'checkbox', [
                 'label' => 'form.slideritem.enabled.label',
                 'data'  => true,
@@ -75,6 +55,6 @@ class WidgetSliderItemType extends WidgetType
      */
     public function getName()
     {
-        return 'victoire_widget_form_slideritem';
+        return 'victoire_widget_form_slideritem_advanced';
     }
 }
