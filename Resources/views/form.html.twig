@@ -32,53 +32,55 @@
         <button class="vic-btn vic-btn-primary vic-reduce">{{ 'victoire.slider.reduce'|trans }}</button>
         <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
             {% for item in form.sliderItems %}
-                <li class="vic-col-sm-12 vic-request-block">
-                    <div class="vic-panel vic-panel-default">
-                        <i class="fa fa-arrows fa-lg vic-drag-and-drop"></i>
-                        <div class="vic-panel-heading expand">
-                            <span class="vic-circled request-number"></span>
-                            <button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right"
-                                    data-action="remove-block"><i class="fa fa-trash-o"></i></button>
-                            <div class="vic-pull-right vic-checkbox-collapse">
-                                {{ form_widget(item.enabled) }}
+                {% spaceless %}
+                    <li class="vic-col-sm-12 vic-request-block">
+                        <div class="vic-panel vic-panel-default">
+                            <i class="fa fa-arrows fa-lg vic-drag-and-drop"></i>
+                            <div class="vic-panel-heading expand">
+                                <span class="vic-circled request-number"></span>
+                                <button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right"
+                                        data-action="remove-block"><i class="fa fa-trash-o"></i></button>
+                                <div class="vic-pull-right vic-checkbox-collapse">
+                                    {{ form_widget(item.enabled) }}
+                                </div>
                             </div>
-                        </div>
-                        <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
-                            {% if item.advanced.vars.data %}
-                                <div class="vic-row">
-                                    <div class="vic-col-md-3">
-                                        {{ form_row(item.advanced) }}
-                                        {{ form_row(item.position) }}
-                                    </div>
-                                    <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
-                                        <h6><small>prévisualisation - fermez la modal et passer en mode édition pour éditer le slide.</small></h6>
-                                        <div class="vic-mask">
-                                            {% if item.vars.data.id is defined %}
-                                                {{ cms_slot_widgets('victoire_slider_' ~ item.vars.data.id) }}
-                                            {% endif %}
+                            <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
+                                {% if item.advanced.vars.data %}
+                                    <div class="vic-row">
+                                        <div class="vic-col-md-3">
+                                            {{ form_row(item.advanced) }}
+                                            {{ form_row(item.position) }}
+                                        </div>
+                                        <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
+                                            <h6><small>prévisualisation - fermez la modal et passer en mode édition pour éditer le slide.</small></h6>
+                                            <div class="vic-mask">
+                                                {% if item.vars.data.id is defined %}
+                                                    {{ cms_slot_widgets('victoire_slider_' ~ item.vars.data.id) }}
+                                                {% endif %}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            {% else %}
-                                <div class="vic-row">
-                                    <div class="vic-col-md-4">
-                                        {{ form_row(item.image) }}
-                                        {{ form_row(item.enabled) }}
-                                        {{ form_row(item.advanced) }}
-                                        {{ form_row(item.position) }}
+                                {% else %}
+                                    <div class="vic-row">
+                                        <div class="vic-col-md-4">
+                                            {{ form_row(item.image) }}
+                                            {{ form_row(item.enabled) }}
+                                            {{ form_row(item.advanced) }}
+                                            {{ form_row(item.position) }}
+                                        </div>
+                                        <div class="vic-col-md-4">
+                                            {{ form_row(item.title) }}
+                                            {{ form_row(item.subtitle) }}
+                                        </div>
+                                        <div class="vic-col-md-4">
+                                            {{ form_row(item.link) }}
+                                        </div>
                                     </div>
-                                    <div class="vic-col-md-4">
-                                        {{ form_row(item.title) }}
-                                        {{ form_row(item.subtitle) }}
-                                    </div>
-                                    <div class="vic-col-md-4">
-                                        {{ form_row(item.link) }}
-                                    </div>
-                                </div>
-                            {% endif %}
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                {% endspaceless %}
             {% endfor %}
         </ul>
     </div>
