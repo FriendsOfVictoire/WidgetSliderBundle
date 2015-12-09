@@ -98,6 +98,10 @@
                 <source>form.slideritem.enabled.label</source>
                 <target>Activer ce slide ?</target>
             </trans-unit>
+            <trans-unit resname="widget_slider.form.advanced.label">
+                <source>widget_slider.form.advanced.label</source>
+                <target>Mode avancé ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
