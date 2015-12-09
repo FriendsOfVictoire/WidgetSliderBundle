@@ -9,6 +9,9 @@
     .vic-reduce {
         margin: 30px 0 30px 17px;
     }
+    .vic-checkbox-collapse, .vic-checkbox-collapse label, .vic-checkbox-collapse .vic-checkbox {
+        margin: 0;
+    }
 </style>
 
 <div id="picker-static" class="vic-tab-pane vic-active">
@@ -36,12 +39,14 @@
                             <span class="vic-circled request-number"></span>
                             <button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right"
                                     data-action="remove-block"><i class="fa fa-trash-o"></i></button>
+                            <div class="vic-pull-right vic-checkbox-collapse">
+                                {{ form_widget(item.enabled) }}
+                            </div>
                         </div>
                         <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
                             {% if item.advanced.vars.data %}
                                 <div class="vic-row">
                                     <div class="vic-col-md-3">
-                                        {{ form_row(item.enabled) }}
                                         {{ form_row(item.advanced) }}
                                         {{ form_row(item.position) }}
                                     </div>
