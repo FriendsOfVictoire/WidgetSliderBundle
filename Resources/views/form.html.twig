@@ -52,7 +52,7 @@
                                             {{ form_row(item.position) }}
                                         </div>
                                         <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
-                                            <h6><small>prévisualisation - fermez la modal et passer en mode édition pour éditer le slide.</small></h6>
+                                            <h6><small>{{ 'widget.slider.preview'|trans }}</small></h6>
                                             <div class="vic-mask">
                                                 {% if item.vars.data.id is defined %}
                                                     {{ cms_slot_widgets('victoire_slider_' ~ item.vars.data.id) }}

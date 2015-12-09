@@ -102,6 +102,10 @@
                 <source>widget_slider.form.advanced.label</source>
                 <target>Mode avancé ?</target>
             </trans-unit>
+            <trans-unit resname="widget.slider.preview">
+                <source>widget.slider.preview</source>
+                <target>prévisualisation - fermez la modal et passer en mode édition pour éditer le slide.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
