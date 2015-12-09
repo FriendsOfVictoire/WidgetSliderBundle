@@ -34,12 +34,6 @@ class WidgetSlider extends WidgetListing
     protected $autoplay;
 
     /**
-     * @var boolean
-     * @ORM\Column(name="advanced", type="boolean")
-     */
-    protected $advanced;
-
-    /**
      * @ORM\Column(name="autoplaySpeed", type="string", length=255)
      */
     protected $autoplaySpeed = 0;
@@ -162,21 +156,5 @@ class WidgetSlider extends WidgetListing
         $this->autoplaySpeed = $autoplaySpeed;
 
         return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function isAdvanced()
-    {
-        return $this->advanced;
-    }
-
-    /**
-     * @param mixed $advanced
-     */
-    public function setAdvanced($advanced)
-    {
-        $this->advanced = $advanced;
     }
 }

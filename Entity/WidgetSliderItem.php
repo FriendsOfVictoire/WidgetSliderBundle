@@ -38,6 +38,13 @@ class WidgetSliderItem extends WidgetListingItem
     /**
      * @var string
      *
+     * @ORM\Column(name="advanced", type="boolean")
+     */
+    protected $advanced = false;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="link_label", type="string", length=55, nullable=true)
      */
     protected $linkLabel;
@@ -193,5 +200,21 @@ class WidgetSliderItem extends WidgetListingItem
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function isAdvanced()
+    {
+        return $this->advanced;
+    }
+
+    /**
+     * @param string $advanced
+     */
+    public function setAdvanced($advanced)
+    {
+        $this->advanced = $advanced;
     }
 }
