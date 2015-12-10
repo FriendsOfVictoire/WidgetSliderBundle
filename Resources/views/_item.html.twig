@@ -1,7 +1,15 @@
-{% spaceless %}
-    {% if item.enabled %}
-        <div class="item{% if class is defined %} {{ class }}{% endif %}" style="{% if widget.containerHeight is defined and widget.containerHeight %}min-height: {{ widget.containerHeight }}; {% endif %}">
-            {{ cms_slot_widgets('victoire_slider_' ~ item.id) }}
-        </div>
-    {% endif %}
-{% endspaceless %}
+{% if item.enabled %}
+    <div class="item{% if class is defined %} {{ class }}{% endif %}" style="{% if widget.containerHeight is defined and widget.containerHeight %}min-height: {{  widget.containerHeight}}; {% endif %}{% block background_image %}{% endblock %}">
+        {% block title %}
+            <h2>{% block title_content %}{% endblock %}</h2>
+        {% endblock %}
+
+        {% block subtitle %}
+            <h3>{% block subtitle_content %}{% endblock %}</h3>
+        {% endblock %}
+
+        {% block link %}{% endblock %}
+
+        {% block body %}{% endblock %}
+    </div>
+{% endif %}

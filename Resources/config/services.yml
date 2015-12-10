@@ -21,5 +21,7 @@ services:
         class: Victoire\Widget\SliderBundle\Form\WidgetSliderItemType
         tags:
             - { name: form.type , alias: victoire_widget_form_slideritem }
-
-
+    victoire.widget.form.slideritem_advanced:
+        class: Victoire\Widget\SliderBundle\Form\WidgetSliderItemAdvancedType
+        tags:
+            - { name: form.type , alias: victoire_widget_form_slideritem_advanced }

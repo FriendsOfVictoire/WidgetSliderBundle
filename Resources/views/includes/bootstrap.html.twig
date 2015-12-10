@@ -13,7 +13,27 @@
     <div class="carousel-inner" role="listbox">
         {% for item in widget.sliderItems %}
             {% set params = loop.first ? {'class' : 'active'} : [] %}
-            {% embed 'VictoireWidgetSliderBundle::_item.html.twig' with params %}{% endembed %}
+            {% embed 'VictoireWidgetSliderBundle::_item.html.twig' with params %}
+                {% block background_image %}
+                    {% if not item.advanced and item.image %}background-image: url({{ item.image.url|e }});{% endif %}
+                {% endblock %}
+
+                {% block title_content %}
+                    {% if not item.advanced %}{{ (item.title is defined and item.title) ? vic_link(item.link.parameters, item.title) }}{% endif %}
+                {% endblock %}
+
+                {% block subtitle_content %}
+                    {% if not item.advanced %}{{ (item.subtitle is defined and item.subtitle) ? vic_link(item.link.parameters, item.subtitle) }}{% endif %}
+                {% endblock %}
+
+                {% block link %}
+                    {% if not item.advanced and item.link %}{{ vic_link(item.link.parameters, item.linkLabel) }}{% endif %}
+                {% endblock %}
+
+                {% block body %}
+                    {% if item.advanced %}{{ cms_slot_widgets('victoire_slider_' ~ item.id) }}{% endif %}
+                {% endblock %}
+            {% endembed %}
         {% endfor %}
     </div>
 </div>
