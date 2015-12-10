@@ -61,7 +61,7 @@ class WidgetSliderItem extends WidgetListingItem
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="\Victoire\Bundle\MediaBundle\Entity\Media")
-     * @ORM\JoinColumn(name="image_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      * @VIC\ReceiverProperty("imageable")
      */
     protected $image;
@@ -125,7 +125,7 @@ class WidgetSliderItem extends WidgetListingItem
      *
      * @return WidgetImage
      */
-    public function setImage(Media $image)
+    public function setImage(Media $image = null)
     {
         $this->image = $image;
 
