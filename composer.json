@@ -22,12 +22,16 @@
         {
             "name" : "Grégoire Humeau",
             "email": "gregoire@victoire.io"
+        },
+        {
+            "name" : "Vincent Chapron",
+            "email": "vincent@victoire.io"
         }
     ],
     "require"          : {
         "php"                             : ">=5.3.3",
         "symfony/framework-bundle"        : "~2.3",
-        "victoire/victoire"               : "^1.3.7",
+        "victoire/victoire"               : "~1.3",
         "friendsofvictoire/listing-widget": "1.3.x-dev"
     },
     "autoload"         : {
