@@ -65,7 +65,6 @@ class WidgetSliderType extends WidgetType
                 self::manageLibrary($event->getForm(), $library);
                 self::manageAutoplaySpeed($event->getForm(), $autoplay);
             });
-
     }
 
     /**
@@ -83,7 +82,7 @@ class WidgetSliderType extends WidgetType
                 'allow_delete' => true,
                 'by_reference' => false,
                 'attr'         => [
-                    'id' => ($this->mode === Widget::MODE_STATIC) ? 'static' : $this->businessEntityId
+                    'id' => ($this->mode === Widget::MODE_STATIC) ? 'static' : $this->businessEntityId,
                 ],
                 'options'      => [
                     'namespace'        => $this->namespace,

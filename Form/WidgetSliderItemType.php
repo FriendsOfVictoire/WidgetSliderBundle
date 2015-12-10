@@ -37,7 +37,7 @@ class WidgetSliderItemType extends WidgetType
             ->add('enabled', 'checkbox', [
                 'label'       => 'form.slideritem.enabled.label',
                 'data'        => true,
-                'widget_type' => 'inline'
+                'widget_type' => 'inline',
             ])
             ->add('position', 'hidden', [
                 'attr' => [
