@@ -106,6 +106,14 @@
                 <source>form.slideritem.enabled.label</source>
                 <target>¿ Diapositiva activa ?</target>
             </trans-unit>
+            <trans-unit resname="widget_slider.form.advanced.label">
+                <source>widget_slider.form.advanced.label</source>
+                <target>¿ Modo avanzado ?</target>
+            </trans-unit>
+            <trans-unit resname="widget.slider.preview">
+                <source>widget.slider.preview</source>
+                <target>vista previa - cerrar esta ventana y ponerse en modo de edición para editar la diapositiva.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
