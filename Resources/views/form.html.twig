@@ -1,26 +1,6 @@
 {% trans_default_domain "victoire" %}
 {% form_theme form 'VictoireWidgetSliderBundle::fields.html.twig' %}
 
-<style>
-    .vic-drag-and-drop {
-        position: absolute;
-        top: 15px;
-        left: -10px;
-    }
-    .vic-reduce {
-        margin: 30px 0 30px 17px;
-    }
-    .vic-checkbox-collapse, .vic-checkbox-collapse label, .vic-checkbox-collapse .vic-checkbox {
-        margin: 0;
-    }
-    .vic-btn-no-icon:before {
-        content: none;
-    }
-    .vic-expand {
-        cursor: pointer;
-    }
-</style>
-
 <div id="picker-static" class="vic-tab-pane vic-active">
     {{ form_start(form) }}
     <div class="vic-col-md-12">
