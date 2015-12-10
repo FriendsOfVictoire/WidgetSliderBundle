@@ -20,7 +20,7 @@
                     {{ form_row(form.position) }}
                 </div>
                 <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
-                    <h6><small>{{ 'widget.slider.preview'|trans }}</small></h6>
+                    <h6 class="text-center">{{ 'widget.slider.preview'|trans }}</h6>
                     <div class="vic-mask">
                         {% if form.vars.data.id is defined %}
                             {{ cms_slot_widgets('victoire_slider_' ~ form.vars.data.id) }}
