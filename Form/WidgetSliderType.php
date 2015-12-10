@@ -15,6 +15,8 @@ use Victoire\Bundle\WidgetBundle\Entity\Widget;
  */
 class WidgetSliderType extends WidgetType
 {
+    const DEFAULT_LIBRARY = 'bootstrap';
+
     private $mode;
     private $namespace;
     private $businessEntityId;
@@ -42,62 +44,58 @@ class WidgetSliderType extends WidgetType
                 ],
             ]);
 
-        if ($this->mode === Widget::MODE_STATIC) {
-            self::addSliderItems($builder, true);
-        } else {
-            self::addSliderItems($builder, false);
+        self::addSliderItems($builder);
+        if ($this->mode != Widget::MODE_STATIC) {
             self::addQueryAndBusinessEntityFields($builder);
         }
 
         parent::buildForm($builder, $options);
 
-        $builder->addEventListener(
-            FormEvents::PRE_SET_DATA,
-            function (FormEvent $event) {
-                $library = $event->getData()->getLibrary() !== null ? $event->getData()->getLibrary() : 'bootstrap';
+        $builder
+            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                $library = $event->getData()->getLibrary() !== null ? $event->getData()->getLibrary() : self::DEFAULT_LIBRARY;
+
                 self::manageLibrary($event->getForm(), $library);
                 self::manageAutoplaySpeed($event->getForm(), $event->getData()->getAutoplay());
-            }
-        );
-
-        $builder->addEventListener(
-            FormEvents::PRE_SUBMIT,
-            function (FormEvent $event) {
-                $library = $event->getData()['library'] !== null ? $event->getData()['library'] : 'bootstrap';
-                self::manageLibrary($event->getForm(), $library);
+            })
+            ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+                $library = $event->getData()['library'] !== null ? $event->getData()['library'] : self::DEFAULT_LIBRARY;
                 $autoplay = (array_key_exists('autoplay', $event->getData()) && $event->getData()['autoplay']);
+
+                self::manageLibrary($event->getForm(), $library);
                 self::manageAutoplaySpeed($event->getForm(), $autoplay);
-            }
-        );
+            });
     }
 
     /**
      * if no entity is given, we generate the static form
      * else, WidgetType class will embed a EntityProxyType for given entity.
-     *
-     * @param $builder
-     * @param bool $static
      */
-    private function addSliderItems($builder, $static = false)
+    private function addSliderItems(FormBuilderInterface $builder)
     {
-        $builder->add('sliderItems', 'collection', [
-            'type'         => new WidgetSliderItemType($this->businessEntityId, $this->namespace, $this->widget),
-            'allow_add'    => true,
-            'allow_delete' => true,
-            'by_reference' => false,
-            'attr'         => ['id' => $static ? 'static' : $this->businessEntityId],
-            'options'      => [
-                'namespace'        => $this->namespace,
-                'businessEntityId' => $this->businessEntityId,
-                'mode'             => $this->mode,
-            ],
-        ]);
+        $sliderItems = new WidgetSliderItemType($this->businessEntityId, $this->namespace, $this->widget);
+
+        $builder
+            ->add('sliderItems', 'collection', [
+                'type'         => $sliderItems,
+                'allow_add'    => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'attr'         => [
+                    'id' => ($this->mode === Widget::MODE_STATIC) ? 'static' : $this->businessEntityId,
+                ],
+                'options'      => [
+                    'namespace'        => $this->namespace,
+                    'businessEntityId' => $this->businessEntityId,
+                    'mode'             => $this->mode,
+                ],
+            ]);
     }
 
     /**
-     * @param $builder
+     * @param FormBuilderInterface $builder
      */
-    private function addQueryAndBusinessEntityFields($builder)
+    private function addQueryAndBusinessEntityFields(FormBuilderInterface $builder)
     {
         $builder
             ->add('slot', 'hidden')
@@ -114,32 +112,35 @@ class WidgetSliderType extends WidgetType
     private function manageAutoplaySpeed(FormInterface $form, $autoplay = false)
     {
         if ($autoplay) {
-            $form->add('autoplaySpeed', null, [
-                'label' => 'widget_slider.form.autoplaySpeed.label',
-            ]);
+            $form
+                ->add('autoplaySpeed', null, [
+                    'label' => 'widget_slider.form.autoplaySpeed.label',
+                ]);
         } else {
             $form->remove('autoplaySpeed');
         }
     }
 
+    /**
+     * @param FormInterface $form
+     * @param $library
+     */
     private function manageLibrary(FormInterface $form, $library)
     {
-        $form->add('library', 'choice', [
-            'label'          => 'widget_slider.form.library.label',
-            'vic_help_block' => sprintf(
-                'widget_slider.form.library.%s.help',
-                $library
-            ),
-            'attr' => [
-                'data-refreshOnChange' => 'true',
-                'target'               => '.vic-tab-pane.vic-active',
-            ],
-            'required' => true,
-            'choices'  => [
-                'bootstrap' => 'Bootstrap',
-                'slick'     => 'Slick',
-            ],
-        ]);
+        $form
+            ->add('library', 'choice', [
+                'label'          => 'widget_slider.form.library.label',
+                'vic_help_block' => sprintf('widget_slider.form.library.%s.help', $library),
+                'attr'           => [
+                    'data-refreshOnChange' => 'true',
+                    'target'               => '.vic-tab-pane.vic-active',
+                ],
+                'required'      => true,
+                'choices'       => [
+                    'bootstrap' => 'Bootstrap',
+                    'slick'     => 'Slick',
+                ],
+            ]);
     }
 
     /**

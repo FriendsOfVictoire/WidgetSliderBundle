@@ -34,3 +34,21 @@ body[role="admin-style"] .vic-widget-slider {
         height: 100%;
     }
 }
+
+.vic-drag-and-drop {
+    position: absolute;
+    top: 15px;
+    left: -10px;
+}
+.vic-reduce {
+    margin: 30px 0 30px 17px;
+}
+.vic-checkbox-collapse, .vic-checkbox-collapse label, .vic-checkbox-collapse .vic-checkbox {
+    margin: 0;
+}
+.vic-btn-no-icon:before {
+    content: none;
+}
+.vic-expand {
+    cursor: pointer;
+}

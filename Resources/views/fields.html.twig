@@ -1,0 +1,50 @@
+{% trans_default_domain "victoire" %}
+{% extends 'VictoireFormBundle:Form:fields.html.twig' %}
+
+{% block victoire_widget_form_slideritem_widget %}
+<div class="vic-panel vic-panel-default">
+    <i class="fa fa-arrows fa-lg vic-drag-and-drop"></i>
+    <div class="vic-panel-heading vic-expand">
+        <span class="vic-circled request-number"></span>
+        <button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right"
+                data-action="remove-block"><i class="fa fa-trash-o"></i></button>
+        <div class="vic-pull-right vic-checkbox-collapse">
+            {{ form_widget(form.enabled) }}
+        </div>
+    </div>
+    <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
+        {% if form.advanced.vars.data %}
+            <div class="vic-row">
+                <div class="vic-col-md-3">
+                    {{ form_row(form.advanced) }}
+                    {{ form_row(form.position) }}
+                </div>
+                <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
+                    <h6 class="text-center">{{ 'widget.slider.preview'|trans }}</h6>
+                    <div class="vic-mask">
+                        {% if form.vars.data.id is defined %}
+                            {{ cms_slot_widgets('victoire_slider_' ~ form.vars.data.id) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="vic-row">
+                <div class="vic-col-md-4">
+                    {{ form_row(form.image) }}
+                    {{ form_row(form.enabled) }}
+                    {{ form_row(form.advanced) }}
+                    {{ form_row(form.position) }}
+                </div>
+                <div class="vic-col-md-4">
+                    {{ form_row(form.title) }}
+                    {{ form_row(form.subtitle) }}
+                </div>
+                <div class="vic-col-md-4">
+                    {{ form_row(form.link) }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
