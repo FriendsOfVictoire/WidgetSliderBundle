@@ -1,4 +1,5 @@
 {% trans_default_domain "victoire" %}
+{% form_theme form 'VictoireWidgetSliderBundle::fields.html.twig' %}
 
 <style>
     .vic-drag-and-drop {
@@ -11,6 +12,9 @@
     }
     .vic-checkbox-collapse, .vic-checkbox-collapse label, .vic-checkbox-collapse .vic-checkbox {
         margin: 0;
+    }
+    .vic-btn-no-icon:before {
+        content: none;
     }
 </style>
 
@@ -29,65 +33,28 @@
     </div>
     <div class="vic-col-sm-12"><hr></div>
     <div class="col-sm-12">
-        <button class="vic-btn vic-btn-primary vic-reduce">{{ 'victoire.slider.reduce'|trans }}</button>
+        <button class="vic-btn vic-btn-add vic-btn-no-icon vic-reduce vic-pull-right"><i class="fa fa-arrows-v"></i>{{ 'victoire.slider.reduce'|trans }}</button>
         <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
             {% for item in form.sliderItems %}
                 {% spaceless %}
                     <li class="vic-col-sm-12 vic-request-block">
-                        <div class="vic-panel vic-panel-default">
-                            <i class="fa fa-arrows fa-lg vic-drag-and-drop"></i>
-                            <div class="vic-panel-heading expand">
-                                <span class="vic-circled request-number"></span>
-                                <button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right"
-                                        data-action="remove-block"><i class="fa fa-trash-o"></i></button>
-                                <div class="vic-pull-right vic-checkbox-collapse">
-                                    {{ form_widget(item.enabled) }}
-                                </div>
-                            </div>
-                            <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
-                                {% if item.advanced.vars.data %}
-                                    <div class="vic-row">
-                                        <div class="vic-col-md-3">
-                                            {{ form_row(item.advanced) }}
-                                            {{ form_row(item.position) }}
-                                        </div>
-                                        <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
-                                            <h6><small>{{ 'widget.slider.preview'|trans }}</small></h6>
-                                            <div class="vic-mask">
-                                                {% if item.vars.data.id is defined %}
-                                                    {{ cms_slot_widgets('victoire_slider_' ~ item.vars.data.id) }}
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                {% else %}
-                                    <div class="vic-row">
-                                        <div class="vic-col-md-4">
-                                            {{ form_row(item.image) }}
-                                            {{ form_row(item.enabled) }}
-                                            {{ form_row(item.advanced) }}
-                                            {{ form_row(item.position) }}
-                                        </div>
-                                        <div class="vic-col-md-4">
-                                            {{ form_row(item.title) }}
-                                            {{ form_row(item.subtitle) }}
-                                        </div>
-                                        <div class="vic-col-md-4">
-                                            {{ form_row(item.link) }}
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
+                        {{ form_widget(item) }}
                     </li>
                 {% endspaceless %}
             {% endfor %}
         </ul>
     </div>
-    {% do form.sliderItems.setRendered %}
+    <div class="vic-col-sm-12 vic-col-md-6 vic-col-lg-4">
+        <a href="#" class="vic-btn vic-btn-add vic-btn-add-item" class="vic-btn vic-btn-add add-request-block">
+            <img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}
+        </a>
+    </div>
+    <div class="vic-col-sm-12">
+        {% do form.sliderItems.setRendered %}
 
-    {{ form_rest(form) }}
-    {{ form_end(form) }}
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
 
     <script type="text/javascript">
         $vic('.vic-sortable').sortable({
@@ -104,10 +71,16 @@
             }
         });
 
+        /**
+         * Enable focus in input, textarea and select, because of D&D
+         */
         $vic("input, select, textarea").on('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e){
             e.stopImmediatePropagation();
         });
 
+        /**
+         * Reduce slide to D&D easier
+         */
         $vic('.vic-reduce').on('click', function(e){
             e.preventDefault();
             if ($vic(this).hasClass('active')) {
@@ -120,6 +93,10 @@
                 $vic('.expand').addClass('active');
             }
         });
+
+        /**
+         * Expand D&G to see slide content
+         */
         $vic('.expand').css('cursor', 'pointer').on('click', function(e){
             e.preventDefault();
             if ($vic(this).hasClass('active')) {
@@ -132,8 +109,6 @@
         });
 
         var collectionHolder = $vic('ul.vic-items');
-        var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block"><img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}</a>');
-        var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8 vic-add"></li>').append($addItemLink);
 
         $vic(document).ready(function () {
 
@@ -142,13 +117,10 @@
                 $vic('select.add_{{form.sliderItems.vars.attr.id}}_link').prop('disabled', true);
             });
 
-            //Add new element link
-            collectionHolder.append($newLinkContainer);
-
             //Add item event
-            $addItemLink.on('click', function (e) {
+            $('.vic-btn-add-item').on('click', function (e) {
                 e.preventDefault();
-                addItemForm(collectionHolder, $newLinkContainer);
+                addItemForm(collectionHolder);
             });
 
         });
@@ -160,12 +132,12 @@
         });
 
         //Get prototype attribute, replace __name__ according to collection length and append element in dom
-        function addItemForm(collectionHolder, $newLinkContainer) {
+        function addItemForm(collectionHolder) {
             var prototype = collectionHolder.attr('data-prototype');
             var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
-            var $newFormContainer = $vic('<li class="vic-col-sm-12 vic-request-block"><div class="vic-panel vic-panel-default"><i class="fa fa-arrows fa-lg vic-drag-and-drop"></i><div class="vic-panel-heading expand"><span class="vic-circled request-number"></span><button type="button" class="vic-btn vic-btn-remove vic-btn-large vic-pull-right" data-action="remove-block"><i class="fa fa-trash-o"></i></button></div><div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form"></div></div></li>');
-            $newLinkContainer.before($newFormContainer);
-            $vic('.vic-nl-form', $newFormContainer).append(newForm);
+            var $newFormContainer = $vic('<li class="vic-col-sm-12 vic-request-block"></li>');
+            collectionHolder.append($newFormContainer);
+            $vic($newFormContainer).append(newForm);
             $vic($newFormContainer).find("input, select, textarea").on('mousedown.ui-disableSelection selectstart.ui-disableSelection', function(e){
                 e.stopImmediatePropagation();
             });
