@@ -22,6 +22,10 @@
         {
             "name" : "Grégoire Humeau",
             "email": "gregoire@victoire.io"
+        },
+        {
+            "name" : "Vincent Chapron",
+            "email": "vincent@victoire.io"
         }
     ],
     "require"          : {
