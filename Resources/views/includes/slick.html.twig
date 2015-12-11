@@ -43,7 +43,7 @@
             nextArrow : '<span class="slick-arrow next"></span>',
             autoplay : {{ widget.autoplay ? 'true' : 'false' }},
             autoplaySpeed : {{ widget.autoplaySpeed }},
-            adaptiveHeight: {{ widget.autoplaySpeed|default(false) }}
+            adaptiveHeight: {{ widget.adaptiveHeight|default('false') }}
         });
     });
 </script>
