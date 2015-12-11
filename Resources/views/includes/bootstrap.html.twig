@@ -47,3 +47,12 @@
         });
     </script>
 {% endif %}
+
+<script type="text/javascript">
+    var maxHeight = 0;
+    $('#carousel-{{ widget.id }}').find('.item').each(function() {
+        if ($(this).height() > maxHeight) {
+            maxHeight = $(this).height();
+        }
+    }).css('height', maxHeight);
+</script>
