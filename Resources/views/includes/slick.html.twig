@@ -42,7 +42,8 @@
             prevArrow : '<span class="slick-arrow prev"></span>',
             nextArrow : '<span class="slick-arrow next"></span>',
             autoplay : {{ widget.autoplay ? 'true' : 'false' }},
-            autoplaySpeed : {{ widget.autoplaySpeed }}
+            autoplaySpeed : {{ widget.autoplaySpeed }},
+            adaptiveHeight: {{ widget.autoplaySpeed|default(false) }}
         });
     });
 </script>
