@@ -3,40 +3,46 @@
 
 <div id="picker-static" class="vic-tab-pane vic-active">
     {{ form_start(form) }}
-    <div class="vic-col-md-12">
-        <div class="vic-row">
-            <div class="vic-col-md-4">
-                {{ form_row(form.library) }}
-            </div>
-            <div class="vic-col-md-offset-4 vic-col-md-4 text-right">
-                {{ form_row(form.autoplay) }}
-                {{ (form.autoplaySpeed is defined) ? form_row(form.autoplaySpeed, {attr: {style: 'max-width: 212px; float: right;'}}) }}
+    <div class="vic-row">
+        <div class="vic-col-md-12">
+            <div class="vic-row">
+                <div class="vic-col-md-4">
+                    {{ form_row(form.library) }}
+                </div>
+                <div class="vic-col-md-offset-4 vic-col-md-4 text-right">
+                    {{ form_row(form.autoplay) }}
+                    {{ (form.autoplaySpeed is defined) ? form_row(form.autoplaySpeed, {attr: {style: 'max-width: 212px; float: right;'}}) }}
+                </div>
             </div>
         </div>
-    </div>
-    <div class="vic-col-sm-12"><hr></div>
-    <div class="col-sm-12">
-        <button class="vic-btn vic-btn-add vic-btn-no-icon vic-reduce vic-pull-right"><i class="fa fa-arrows-v"></i> {{ 'victoire.slider.reduce'|trans }}</button>
-        <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
-            {% for item in form.sliderItems %}
-                {% spaceless %}
-                    <li class="vic-col-sm-12 vic-request-block">
-                        {{ form_widget(item) }}
-                    </li>
-                {% endspaceless %}
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="vic-col-sm-12 vic-col-md-6 vic-col-lg-4">
-        <a href="#" class="vic-btn vic-btn-add vic-btn-add-item" class="vic-btn vic-btn-add add-request-block">
-            <img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}
-        </a>
-    </div>
-    <div class="vic-col-sm-12">
-        {% do form.sliderItems.setRendered %}
 
-        {{ form_rest(form) }}
-        {{ form_end(form) }}
+        <div class="vic-col-sm-12"><hr></div>
+
+        <div class="col-sm-12">
+            <button class="vic-btn vic-btn-add vic-btn-no-icon vic-reduce vic-pull-right"><i class="fa fa-arrows-v"></i> {{ 'victoire.slider.reduce'|trans }}</button>
+            <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
+                {% for item in form.sliderItems %}
+                    {% spaceless %}
+                        <li class="vic-col-sm-12 vic-request-block">
+                            {{ form_widget(item) }}
+                        </li>
+                    {% endspaceless %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="vic-col-sm-12 vic-col-md-6 vic-col-lg-4">
+            <a href="#" class="vic-btn vic-btn-add vic-btn-add-item" class="vic-btn vic-btn-add add-request-block">
+                <img src="/bundles/victoirecms/images/addWidget-icon.png">{{ 'widget_slider.form.add.label'|trans({}, 'victoire') }}
+            </a>
+        </div>
+
+        <div class="vic-col-sm-12">
+            {% do form.sliderItems.setRendered %}
+
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
     </div>
 
     <script type="text/javascript">
