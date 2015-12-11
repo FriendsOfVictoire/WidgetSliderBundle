@@ -34,6 +34,11 @@ class WidgetSlider extends WidgetListing
     protected $autoplay;
 
     /**
+     * @ORM\Column(name="adaptiveHeight", type="boolean", nullable=true)
+     */
+    protected $adaptiveHeight;
+
+    /**
      * @ORM\Column(name="autoplaySpeed", type="string", length=255)
      */
     protected $autoplaySpeed = 0;
@@ -134,6 +139,26 @@ class WidgetSlider extends WidgetListing
     public function setAutoplay($autoplay)
     {
         $this->autoplay = $autoplay;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdaptiveHeight()
+    {
+        return $this->adaptiveHeight;
+    }
+
+    /**
+     * @param mixed $adaptiveHeight
+     *
+     * @return $this
+     */
+    public function setAdaptiveHeight($adaptiveHeight)
+    {
+        $this->adaptiveHeight = $adaptiveHeight;
 
         return $this;
     }

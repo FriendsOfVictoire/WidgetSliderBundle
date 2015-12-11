@@ -42,7 +42,15 @@ class WidgetSliderType extends WidgetType
                     'data-refreshOnChange' => 'true',
                     'target'               => '.vic-tab-pane.vic-active',
                 ],
+            ])
+            ->add('adaptiveHeight', null, [
+                'label' => 'widget_slider.form.adaptiveHeight.label',
+                'attr'  => [
+                    'data-refreshOnChange' => 'true',
+                    'target'               => '.vic-tab-pane.vic-active',
+                ],
             ]);
+
 
         self::addSliderItems($builder);
         if ($this->mode != Widget::MODE_STATIC) {

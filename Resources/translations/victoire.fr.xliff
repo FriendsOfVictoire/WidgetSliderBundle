@@ -58,6 +58,10 @@
                 <source>widget_slider.form.autoplay.label</source>
                 <target>Lecture automatique</target>
             </trans-unit>
+            <trans-unit resname="widget_slider.form.adaptiveHeight.label">
+                <source>widget_slider.form.adaptiveHeight.label</source>
+                <target>Hauteur adaptive</target>
+            </trans-unit>
             <trans-unit resname="widget_slider.form.autoplaySpeed.label">
                 <source>widget_slider.form.autoplaySpeed.label</source>
                 <target>Durée des slides (en millisecondes)</target>

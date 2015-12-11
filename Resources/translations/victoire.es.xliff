@@ -70,6 +70,10 @@
                 <source>widget_slider.form.autoplaySpeed.label</source>
                 <target>Slides interval (milliseconds)</target>
             </trans-unit>
+            <trans-unit resname="widget_slider.form.adaptiveHeight.label">
+                <source>widget_slider.form.adaptiveHeight.label</source>
+                <target>Altura Adaptable</target>
+            </trans-unit>
             <trans-unit resname="widget_slider.form.bullets.label">
                 <source>widget_slider.form.bullets.label</source>
                 <target>Indicators (bullets)</target>
