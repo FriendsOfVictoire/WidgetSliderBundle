@@ -45,10 +45,6 @@ class WidgetSliderType extends WidgetType
             ])
             ->add('adaptiveHeight', null, [
                 'label' => 'widget_slider.form.adaptiveHeight.label',
-                'attr'  => [
-                    'data-refreshOnChange' => 'true',
-                    'target'               => '.vic-tab-pane.vic-active',
-                ],
             ]);
 
 
