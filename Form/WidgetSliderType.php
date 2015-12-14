@@ -47,7 +47,6 @@ class WidgetSliderType extends WidgetType
                 'label' => 'widget_slider.form.adaptiveHeight.label',
             ]);
 
-
         self::addSliderItems($builder);
         if ($this->mode != Widget::MODE_STATIC) {
             self::addQueryAndBusinessEntityFields($builder);

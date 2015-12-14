@@ -48,11 +48,23 @@
     {% endif %}
 
     {% if not widget.adaptiveHeight %}
-        var maxHeight = 0;
-        $('#carousel-{{ widget.id }}').find('.item').each(function() {
-            if ($(this).height() > maxHeight) {
-                maxHeight = $(this).height();
-            }
-        }).css('height', maxHeight);
+        function adaptiveHeight() {
+            var maxHeight = 0;
+            $('#carousel-{{ widget.id }}').find('.item').css('height', 'auto').each(function() {
+                if ($(this).height() > maxHeight) {
+                    maxHeight = $(this).height();
+                }
+            }).height(maxHeight);
+
+            console.log('adaptive height thrown', maxHeight);
+        }
+
+        $(function() {
+            adaptiveHeight();
+        });
+
+        $(window).resize(function() {
+            adaptiveHeight();
+        });
     {% endif %}
 </script>
