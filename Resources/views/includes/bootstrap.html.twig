@@ -6,12 +6,12 @@
 
 <div id="carousel-{{ widget.id }}" class="carousel slide" data-ride="carousel" data-interval="0">
     <ol class="carousel-indicators">
-        {% for item in widget.sliderItems %}
+        {% for item in widget.sliderItems if item.enabled %}
             <li data-target="#carousel-{{ widget.id }}" data-slide-to="{{ loop.index0 }}"{% if loop.first %} class="active"{% endif %}></li>
         {% endfor %}
     </ol>
     <div class="carousel-inner" role="listbox">
-        {% for item in widget.sliderItems %}
+        {% for item in widget.sliderItems if item.enabled %}
             {% set params = loop.first ? {'class' : 'active'} : [] %}
             {% embed 'VictoireWidgetSliderBundle::_item.html.twig' with params %}
                 {% block background_image %}
