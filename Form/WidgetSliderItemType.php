@@ -34,11 +34,6 @@ class WidgetSliderItemType extends WidgetType
         $this->widget = $options['widget'];
 
         $builder
-            ->add('enabled', 'checkbox', [
-                'label'       => 'form.slideritem.enabled.label',
-                'data'        => true,
-                'widget_type' => 'inline',
-            ])
             ->add('position', 'hidden', [
                 'attr' => [
                     'class' => 'vic-position',
@@ -52,7 +47,9 @@ class WidgetSliderItemType extends WidgetType
         $builder
             ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
                 $advanced = $event->getForm()->has('advanced') && $event->getData() && $event->getData()->isAdvanced();
+                $enabled = ($event->getData() && $event->getData()->getEnabled()) || !$event->getData();
 
+                self::addEnabledField($event->getForm(), $enabled);
                 self::manageAdvancedMode($event->getForm(), $advanced);
             })
             ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
@@ -60,6 +57,20 @@ class WidgetSliderItemType extends WidgetType
 
                 self::manageAdvancedMode($event->getForm(), $advanced);
             });
+    }
+
+    /**
+     * @param FormInterface $builder
+     * @param $value
+     */
+    private function addEnabledField(FormInterface $builder, $value)
+    {
+        $builder
+            ->add('enabled', 'checkbox', [
+                'label'       => 'form.slideritem.enabled.label',
+                'data'        => $value,
+                'widget_type' => 'inline',
+            ]);
     }
 
     /**

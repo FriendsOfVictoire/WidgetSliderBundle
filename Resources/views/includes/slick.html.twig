@@ -6,7 +6,7 @@
 {% endstylesheets %}
 
 <div id="slick-{{ widget.id }}" class="slick-slider">
-    {% for item in widget.sliderItems %}
+    {% for item in widget.sliderItems if item.enabled %}
         {% embed 'VictoireWidgetSliderBundle::_item.html.twig' %}
             {% block background_image %}
                 {% if not item.advanced and item.image %}background-image: url({{ item.image.url|e }});{% endif %}
