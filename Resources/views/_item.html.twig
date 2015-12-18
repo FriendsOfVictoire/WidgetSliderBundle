@@ -1,11 +1,15 @@
 {% if item.enabled %}
     <div class="item{% if class is defined %} {{ class }}{% endif %}" style="{% if widget.containerHeight is defined and widget.containerHeight %}min-height: {{  widget.containerHeight}}; {% endif %}{% block background_image %}{% endblock %}">
         {% block title %}
-            <h2>{% block title_content %}{% endblock %}</h2>
+            {% if item.title is defined and item.title and not item.advanced %}
+                <h2>{% block title_content %}{% endblock %}</h2>
+            {% endif %}
         {% endblock %}
 
         {% block subtitle %}
-            <h3>{% block subtitle_content %}{% endblock %}</h3>
+            {% if item.subtitle is defined and item.subtitle and not item.advanced %}
+                <h3>{% block subtitle_content %}{% endblock %}</h3>
+            {% endif %}
         {% endblock %}
 
         {% block link %}{% endblock %}
