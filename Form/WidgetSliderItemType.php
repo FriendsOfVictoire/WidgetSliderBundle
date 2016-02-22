@@ -2,12 +2,16 @@
 
 namespace Victoire\Widget\SliderBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
+use Victoire\Bundle\FormBundle\Form\Type\LinkType;
+use Victoire\Bundle\MediaBundle\Form\Type\MediaType;
 use Victoire\Bundle\WidgetBundle\Entity\Widget;
 
 /**
@@ -15,11 +19,6 @@ use Victoire\Bundle\WidgetBundle\Entity\Widget;
  */
 class WidgetSliderItemType extends WidgetType
 {
-    private $mode;
-    private $namespace;
-    private $businessEntityId;
-    private $widget;
-
     /**
      * define form fields.
      *
@@ -28,19 +27,14 @@ class WidgetSliderItemType extends WidgetType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->mode = $options['mode'];
-        $this->namespace = $options['namespace'];
-        $this->businessEntityId = $options['businessEntityId'];
-        $this->widget = $options['widget'];
-
         $builder
-            ->add('position', 'hidden', [
+            ->add('position', HiddenType::class, [
                 'attr' => [
                     'class' => 'vic-position',
                 ],
             ]);
 
-        if ($this->mode === Widget::MODE_STATIC) {
+        if ($options['mode'] === Widget::MODE_STATIC) {
             self::addAdvancedMode($builder);
         }
 
@@ -66,7 +60,7 @@ class WidgetSliderItemType extends WidgetType
     private function addEnabledField(FormInterface $builder, $value)
     {
         $builder
-            ->add('enabled', 'checkbox', [
+            ->add('enabled', CheckboxType::class, [
                 'label'       => 'form.slideritem.enabled.label',
                 'data'        => $value,
                 'widget_type' => 'inline',
@@ -79,7 +73,7 @@ class WidgetSliderItemType extends WidgetType
     private function addAdvancedMode(FormBuilderInterface $builder)
     {
         $builder
-            ->add('advanced', 'checkbox', [
+            ->add('advanced', CheckboxType::class, [
                 'label' => 'widget_slider.form.advanced.label',
                 'attr'  => [
                     'data-refreshOnChange' => 'true',
@@ -104,7 +98,7 @@ class WidgetSliderItemType extends WidgetType
                     'label'          => 'form.slideritem.subtitle.label',
                     'vic_help_block' => 'form.slideritem.deprecated',
                 ])
-                ->add('link', 'victoire_link', [
+                ->add('link', LinkType::class, [
                     'label'          => 'form.slideritem.linkUrl.label',
                     'vic_help_block' => 'form.slideritem.deprecated',
                 ])
@@ -112,35 +106,23 @@ class WidgetSliderItemType extends WidgetType
                     'label'          => 'form.slideritem.linkLabel.label',
                     'vic_help_block' => 'form.slideritem.deprecated',
                 ])
-                ->add('image', 'media', [
+                ->add('image', MediaType::class, [
                     'label' => 'form.slideritem.image.label',
                 ]);
         }
     }
 
     /**
-     * bind form to WidgetSliderItem entity.
-     *
-     * @param OptionsResolverInterface $resolver
+     * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\SliderBundle\Entity\WidgetSliderItem',
             'widget'             => null,
             'translation_domain' => 'victoire',
         ]);
-    }
-
-    /**
-     * get form name.
-     *
-     * @return string The form name
-     */
-    public function getName()
-    {
-        return 'victoire_widget_form_slideritem';
     }
 }

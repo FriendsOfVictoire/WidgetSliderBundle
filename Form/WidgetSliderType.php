@@ -2,11 +2,15 @@
 
 namespace Victoire\Widget\SliderBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Victoire\Bundle\CoreBundle\Form\WidgetFieldsFormType;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
 use Victoire\Bundle\WidgetBundle\Entity\Widget;
 
@@ -17,11 +21,6 @@ class WidgetSliderType extends WidgetType
 {
     const DEFAULT_LIBRARY = 'bootstrap';
 
-    private $mode;
-    private $namespace;
-    private $businessEntityId;
-    private $widget;
-
     /**
      * define form fields.
      *
@@ -30,11 +29,6 @@ class WidgetSliderType extends WidgetType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->mode = $options['mode'];
-        $this->namespace = $options['namespace'];
-        $this->businessEntityId = $options['businessEntityId'];
-        $this->widget = $options['widget'];
-
         $builder
             ->add('autoplay', null, [
                 'label' => 'widget_slider.form.autoplay.label',
@@ -47,9 +41,9 @@ class WidgetSliderType extends WidgetType
                 'label' => 'widget_slider.form.adaptiveHeight.label',
             ]);
 
-        self::addSliderItems($builder);
-        if ($this->mode != Widget::MODE_STATIC) {
-            self::addQueryAndBusinessEntityFields($builder);
+        self::addSliderItems($builder, $options);
+        if ($options['mode'] != Widget::MODE_STATIC) {
+            self::addQueryAndBusinessEntityFields($builder, $options);
         }
 
         parent::buildForm($builder, $options);
@@ -73,24 +67,30 @@ class WidgetSliderType extends WidgetType
     /**
      * if no entity is given, we generate the static form
      * else, WidgetType class will embed a EntityProxyType for given entity.
+     *
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      */
-    private function addSliderItems(FormBuilderInterface $builder)
+    private function addSliderItems(FormBuilderInterface $builder, $options)
     {
-        $sliderItems = new WidgetSliderItemType($this->businessEntityId, $this->namespace, $this->widget);
-
         $builder
-            ->add('sliderItems', 'collection', [
-                'type'         => $sliderItems,
-                'allow_add'    => true,
-                'allow_delete' => true,
-                'by_reference' => false,
-                'attr'         => [
-                    'id' => ($this->mode === Widget::MODE_STATIC) ? 'static' : $this->businessEntityId,
+            ->add('sliderItems', CollectionType::class, [
+                'entry_type'    => WidgetSliderItemType::class,
+                'entry_options' => [
+                    'businessEntityId' => $options['businessEntityId'],
+                    'namespace'        => $options['namespace'],
+                    'widget'           => $options['widget']
                 ],
-                'options'      => [
-                    'namespace'        => $this->namespace,
-                    'businessEntityId' => $this->businessEntityId,
-                    'mode'             => $this->mode,
+                'allow_add'     => true,
+                'allow_delete'  => true,
+                'by_reference'  => false,
+                'attr'          => [
+                    'id' => ($options['mode'] === Widget::MODE_STATIC) ? 'static' : $options['businessEntityId'],
+                ],
+                'options'       => [
+                    'namespace'        => $options['namespace'],
+                    'businessEntityId' => $options['businessEntityId'],
+                    'mode'             => $options['mode'],
                 ],
             ]);
     }
@@ -98,13 +98,13 @@ class WidgetSliderType extends WidgetType
     /**
      * @param FormBuilderInterface $builder
      */
-    private function addQueryAndBusinessEntityFields(FormBuilderInterface $builder)
+    private function addQueryAndBusinessEntityFields(FormBuilderInterface $builder, $options)
     {
         $builder
-            ->add('slot', 'hidden')
-            ->add('fields', 'widget_fields', [
-                'namespace' => $this->namespace,
-                'widget'    => $this->widget,
+            ->add('slot', HiddenType::class)
+            ->add('fields', WidgetFieldsFormType::class, [
+                'namespace' => $options['namespace'],
+                'widget'    => $options['widget'],
             ]);
     }
 
@@ -131,44 +131,32 @@ class WidgetSliderType extends WidgetType
     private function manageLibrary(FormInterface $form, $library)
     {
         $form
-            ->add('library', 'choice', [
+            ->add('library', ChoiceType::class, [
                 'label'          => 'widget_slider.form.library.label',
+                'choices'       => [
+                    'Bootstrap' => 'bootstrap',
+                    'Slick'     => 'slick',
+                ],
+                'required'      => true,
                 'vic_help_block' => sprintf('widget_slider.form.library.%s.help', $library),
                 'attr'           => [
                     'data-refreshOnChange' => 'true',
                     'target'               => '.vic-tab-pane.vic-active',
                 ],
-                'required'      => true,
-                'choices'       => [
-                    'bootstrap' => 'Bootstrap',
-                    'slick'     => 'Slick',
-                ],
             ]);
     }
 
     /**
-     * bind form to WidgetRedactor entity.
-     *
-     * @param OptionsResolverInterface $resolver
+     * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\SliderBundle\Entity\WidgetSlider',
             'widget'             => 'widgetslideritem',
             'translation_domain' => 'victoire',
         ]);
-    }
-
-    /**
-     * get form name.
-     *
-     * @return string The form name
-     */
-    public function getName()
-    {
-        return 'victoire_widget_form_slider';
     }
 }

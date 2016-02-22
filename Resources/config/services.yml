@@ -14,14 +14,10 @@ services:
     victoire.widget.form.slider:
         class: Victoire\Widget\SliderBundle\Form\WidgetSliderType
         tags:
-            - { name: form.type , alias: victoire_widget_form_slider }
+            - { name: form.type }
 
     #alias to the form
     victoire.widget.form.slideritem:
         class: Victoire\Widget\SliderBundle\Form\WidgetSliderItemType
         tags:
-            - { name: form.type , alias: victoire_widget_form_slideritem }
-    victoire.widget.form.slideritem_advanced:
-        class: Victoire\Widget\SliderBundle\Form\WidgetSliderItemAdvancedType
-        tags:
-            - { name: form.type , alias: victoire_widget_form_slideritem_advanced }
+            - { name: form.type }
