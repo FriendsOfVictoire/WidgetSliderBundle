@@ -4,6 +4,7 @@ namespace Victoire\Widget\SliderBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Victoire\Bundle\WidgetBundle\Entity\WidgetSlotInterface;
 use Victoire\Widget\ListingBundle\Entity\WidgetListing;
 use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 
@@ -13,7 +14,7 @@ use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
  * @ORM\Table("vic_widget_slider")
  * @ORM\Entity
  */
-class WidgetSlider extends WidgetListing
+class WidgetSlider extends WidgetListing implements WidgetSlotInterface
 {
     /**
      * @var string
