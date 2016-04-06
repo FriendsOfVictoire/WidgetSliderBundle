@@ -49,6 +49,7 @@ class WidgetSlider extends WidgetListing implements WidgetSlotInterface
      */
     public function __construct()
     {
+        parent::__construct();
         $this->sliderItems = new ArrayCollection();
     }
 
