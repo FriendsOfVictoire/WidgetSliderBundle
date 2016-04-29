@@ -79,7 +79,7 @@ class WidgetSliderType extends WidgetType
                 'entry_options' => [
                     'businessEntityId' => $options['businessEntityId'],
                     'namespace'        => $options['namespace'],
-                    'widget'           => $options['widget']
+                    'widget'           => $options['widget'],
                 ],
                 'allow_add'     => true,
                 'allow_delete'  => true,
@@ -133,11 +133,11 @@ class WidgetSliderType extends WidgetType
         $form
             ->add('library', ChoiceType::class, [
                 'label'          => 'widget_slider.form.library.label',
-                'choices'       => [
+                'choices'        => [
                     'Bootstrap' => 'bootstrap',
                     'Slick'     => 'slick',
                 ],
-                'required'      => true,
+                'required'       => true,
                 'vic_help_block' => sprintf('widget_slider.form.library.%s.help', $library),
                 'attr'           => [
                     'data-refreshOnChange' => 'true',
