@@ -8,12 +8,13 @@
             <div class="vic-row">
                 <div class="vic-col-md-4">
                     {{ form_row(form.library) }}
-                    {{ form_row(form.adaptiveHeight) }}
+                    {{ form_widget(form.adaptiveHeight) }}
                 </div>
 
                 <div class="vic-col-md-offset-4 vic-col-md-4 text-right">
-                    {{ form_row(form.autoplay) }}
+                    {{ form_widget(form.autoplay) }}
                     {{ (form.autoplaySpeed is defined) ? form_row(form.autoplaySpeed, {attr: {style: 'max-width: 212px; float: right;'}}) }}
+                    {{ form_widget(form.asynchronous) }}
                 </div>
             </div>
         </div>

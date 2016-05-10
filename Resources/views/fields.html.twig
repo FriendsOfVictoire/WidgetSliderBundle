@@ -16,7 +16,7 @@
         {% if form.advanced is defined and form.advanced.vars.data %}
             <div class="vic-row">
                 <div class="vic-col-md-3">
-                    {{ form_row(form.advanced) }}
+                    {{ form_widget(form.advanced) }}
                     {{ form_row(form.position) }}
                 </div>
                 <div id="widget-{{ form.vars.data.id }}" class="vic-col-md-9">
@@ -32,8 +32,8 @@
             <div class="vic-row">
                 <div class="vic-col-md-4">
                     {{ form_row(form.image) }}
-                    {{ form_row(form.enabled) }}
-                    {% if form.advanced is defined %}{{ form_row(form.advanced) }}{% endif %}
+                    {{ form_widget(form.enabled) }}
+                    {% if form.advanced is defined %}{{ form_widget(form.advanced) }}{% endif %}
                     {{ form_row(form.position) }}
                 </div>
                 <div class="vic-col-md-4">

@@ -125,4 +125,12 @@ class WidgetSliderItemType extends WidgetType
             'translation_domain' => 'victoire',
         ]);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'victoire_widget_form_slideritem';
+    }
 }

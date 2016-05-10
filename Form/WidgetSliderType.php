@@ -137,8 +137,9 @@ class WidgetSliderType extends WidgetType
                     'Bootstrap' => 'bootstrap',
                     'Slick'     => 'slick',
                 ],
+                'choices_as_values' => true,
                 'required'      => true,
-                'vic_help_block' => sprintf('widget_slider.form.library.%s.help', $library),
+                'vic_help_block' => sprintf('widget_slider.form.library.%s.help', strtolower($library)),
                 'attr'           => [
                     'data-refreshOnChange' => 'true',
                     'target'               => '.vic-tab-pane.vic-active',
