@@ -27,19 +27,13 @@
     "require": {
         "php": ">=5.5.9",
         "symfony/framework-bundle": "~2.8|~3.0",
-        "victoire/victoire": "~1.5",
-        "friendsofvictoire/listing-widget": "~1.5"
+        "victoire/victoire": "~2",
+        "friendsofvictoire/listing-widget": "~2"
     },
     "autoload": {
         "psr-0": {
             "Victoire\\Widget\\SliderBundle": ""
         }
     },
-    "minimum-stability": "dev",
-    "target-dir": "Victoire/Widget/SliderBundle",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.5.x-dev"
-        }
-    }
+    "target-dir": "Victoire/Widget/SliderBundle"
 }
