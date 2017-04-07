@@ -34,7 +34,7 @@ class WidgetSliderType extends WidgetType
                 'label' => 'widget_slider.form.autoplay.label',
                 'attr'  => [
                     'data-refreshOnChange' => 'true',
-                    'target'               => '.vic-tab-pane.vic-active',
+                    'data-target'               => '#picker-'.$options['mode'].'-'.$options['quantum'].' .v-widget-form',
                 ],
             ])
             ->add('adaptiveHeight', null, [
@@ -49,17 +49,17 @@ class WidgetSliderType extends WidgetType
         parent::buildForm($builder, $options);
 
         $builder
-            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($options) {
                 $library = $event->getData()->getLibrary() !== null ? $event->getData()->getLibrary() : self::DEFAULT_LIBRARY;
 
-                self::manageLibrary($event->getForm(), $library);
+                self::manageLibrary($event->getForm(), $library, $options['quantum'], $options['mode']);
                 self::manageAutoplaySpeed($event->getForm(), $event->getData()->getAutoplay());
             })
-            ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+            ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($options) {
                 $library = $event->getData()['library'] !== null ? $event->getData()['library'] : self::DEFAULT_LIBRARY;
                 $autoplay = (array_key_exists('autoplay', $event->getData()) && $event->getData()['autoplay']);
 
-                self::manageLibrary($event->getForm(), $library);
+                self::manageLibrary($event->getForm(), $library, $options['quantum'], $options['mode']);
                 self::manageAutoplaySpeed($event->getForm(), $autoplay);
             });
     }
@@ -76,11 +76,6 @@ class WidgetSliderType extends WidgetType
         $builder
             ->add('sliderItems', CollectionType::class, [
                 'entry_type'    => WidgetSliderItemType::class,
-                'entry_options' => [
-                    'businessEntityId' => $options['businessEntityId'],
-                    'namespace'        => $options['namespace'],
-                    'widget'           => $options['widget'],
-                ],
                 'allow_add'     => true,
                 'allow_delete'  => true,
                 'by_reference'  => false,
@@ -88,8 +83,6 @@ class WidgetSliderType extends WidgetType
                     'id' => ($options['mode'] === Widget::MODE_STATIC) ? 'static' : $options['businessEntityId'],
                 ],
                 'options'       => [
-                    'namespace'        => $options['namespace'],
-                    'businessEntityId' => $options['businessEntityId'],
                     'mode'             => $options['mode'],
                 ],
             ]);
@@ -103,7 +96,7 @@ class WidgetSliderType extends WidgetType
         $builder
             ->add('slot', HiddenType::class)
             ->add('fields', WidgetFieldsFormType::class, [
-                'namespace' => $options['namespace'],
+                'businessEntityId' => $options['businessEntityId'],
                 'widget'    => $options['widget'],
             ]);
     }
@@ -128,7 +121,7 @@ class WidgetSliderType extends WidgetType
      * @param FormInterface $form
      * @param $library
      */
-    private function manageLibrary(FormInterface $form, $library)
+    private function manageLibrary(FormInterface $form, $library, $quantum, $mode)
     {
         $form
             ->add('library', ChoiceType::class, [
@@ -142,7 +135,7 @@ class WidgetSliderType extends WidgetType
                 'vic_help_block'    => sprintf('widget_slider.form.library.%s.help', strtolower($library)),
                 'attr'              => [
                     'data-refreshOnChange' => 'true',
-                    'target'               => '.vic-tab-pane.vic-active',
+                    'data-target'               => '#picker-'.$mode.'-'.$quantum.' .v-widget-form',
                 ],
             ]);
     }
