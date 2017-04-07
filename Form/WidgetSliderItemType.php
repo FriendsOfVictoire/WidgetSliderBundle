@@ -29,6 +29,7 @@ class WidgetSliderItemType extends WidgetType
     {
         $builder
             ->add('position', HiddenType::class, [
+                'data' => 0,
                 'attr' => [
                     'class' => 'vic-position',
                 ],
@@ -121,7 +122,6 @@ class WidgetSliderItemType extends WidgetType
 
         $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\SliderBundle\Entity\WidgetSliderItem',
-            'widget'             => null,
             'translation_domain' => 'victoire',
         ]);
     }
