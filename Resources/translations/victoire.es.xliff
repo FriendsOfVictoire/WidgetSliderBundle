@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-    <file date="2013-11-27T18:15:06Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+    <file date="2013-11-27T18:15:06Z" source-language="en" target-language="es" datatype="plaintext"
+          original="not.available">
         <header>
             <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
             <note>The source node in most cases contains the sample message as written by the developer. If it looks
@@ -9,111 +10,111 @@
             </note>
         </header>
         <body>
-            <trans-unit resname="form.slideritem.subtitle.label" id="5912e0e31e847">
+            <trans-unit id="1" resname="form.slideritem.subtitle.label">
                 <source>form.slideritem.subtitle.label</source>
                 <target>Subtitle</target>
             </trans-unit>
-            <trans-unit resname="modal.form.widget.type.slider.label" id="5912e0e31e863">
+            <trans-unit id="2" resname="modal.form.widget.type.slider.label">
                 <source>modal.form.widget.type.slider.label</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="widget.form.theme.widgetslider" id="5912e0e31e87c">
+            <trans-unit id="3" resname="widget.form.theme.widgetslider">
                 <source>widget.form.theme.widgetslider</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="widget.slider.new.action.label" id="5912e0e31e895">
+            <trans-unit id="4" resname="widget.slider.new.action.label">
                 <source>widget.slider.new.action.label</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="widget.widgetslider.new.action.label" id="5912e0e31e8ae">
+            <trans-unit id="5" resname="widget.widgetslider.new.action.label">
                 <source>widget.widgetslider.new.action.label</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.title.label" id="5912e0e31e8c7">
+            <trans-unit id="6" resname="form.slideritem.title.label">
                 <source>form.slideritem.title.label</source>
                 <target>Heading</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.description.label" id="5912e0e31e8df">
+            <trans-unit id="7" resname="form.slideritem.description.label">
                 <source>form.slideritem.description.label</source>
                 <target>Description</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.linkUrl.label" id="5912e0e31e8f8">
+            <trans-unit id="8" resname="form.slideritem.linkUrl.label">
                 <source>form.slideritem.linkUrl.label</source>
                 <target>Button (Link)</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.linkLabel.label" id="5912e0e31e911">
+            <trans-unit id="9" resname="form.slideritem.linkLabel.label">
                 <source>form.slideritem.linkLabel.label</source>
                 <target>Button (label)</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.image.label" id="5912e0e31e929">
+            <trans-unit id="10" resname="form.slideritem.image.label">
                 <source>form.slideritem.image.label</source>
                 <target>Picture</target>
             </trans-unit>
-            <trans-unit resname="widget.listingSlider.new.action.label" id="5912e0e31e94a">
+            <trans-unit id="11" resname="widget.listingSlider.new.action.label">
                 <source>widget.listingSlider.new.action.label</source>
                 <target>Listing Slider</target>
             </trans-unit>
-            <trans-unit resname="modal.form.widget.type.listingSlider.label" id="5912e0e31e973">
+            <trans-unit id="12" resname="modal.form.widget.type.listingSlider.label">
                 <source>modal.form.widget.type.listingSlider.label</source>
                 <target>Listing Slider</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.library.label" id="5912e0e31e98c">
+            <trans-unit id="13" resname="widget_slider.form.library.label">
                 <source>widget_slider.form.library.label</source>
                 <target>Library</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.autoplay.label" id="5912e0e31e9a5">
+            <trans-unit id="14" resname="widget_slider.form.autoplay.label">
                 <source>widget_slider.form.autoplay.label</source>
                 <target>Autoplay</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.autoplaySpeed.label" id="5912e0e31e9be">
+            <trans-unit id="15" resname="widget_slider.form.autoplaySpeed.label">
                 <source>widget_slider.form.autoplaySpeed.label</source>
                 <target>Slides interval (milliseconds)</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.adaptiveHeight.label" id="5912e0e31e9d6">
+            <trans-unit id="16" resname="widget_slider.form.adaptiveHeight.label">
                 <source>widget_slider.form.adaptiveHeight.label</source>
                 <target>Altura Adaptable</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.bullets.label" id="5912e0e31e9f7">
+            <trans-unit id="17" resname="widget_slider.form.bullets.label">
                 <source>widget_slider.form.bullets.label</source>
                 <target>Indicators (bullets)</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.library.bootstrap.help" id="5912e0e31ea28">
+            <trans-unit id="18" resname="widget_slider.form.library.bootstrap.help">
                 <source>widget_slider.form.library.bootstrap.help</source>
                 <target>
                     <![CDATA[Bootstrap slider is implemented with bullets to navigate from one slide to another.</br>
                     <a href="http://getbootstrap.com/javascript/#carousel" target="_blank">http://getbootstrap.com/javascript/#carousel</a>]]></target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.library.slick.help" id="5912e0e31ea51">
+            <trans-unit id="19" resname="widget_slider.form.library.slick.help">
                 <source>widget_slider.form.library.slick.help</source>
                 <target>
                     <![CDATA[Slick slider fits perfectly with all devices.</br>It has been developed for responsive purposes and allows user to navigate from one slide to another by sliding the image.</br>Default theme implements navigation arrows on each side of the slider.</br>
                     <a href="http://kenwheeler.github.io/slick" target="_blank">http://kenwheeler.github.io/slick</a>]]></target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.add.label" id="5912e0e31ea6a">
+            <trans-unit id="20" resname="widget_slider.form.add.label">
                 <source>widget_slider.form.add.label</source>
                 <target>Add a new item</target>
             </trans-unit>
-            <trans-unit resname="victoire.slider.reduce" id="5912e0e31ea83">
+            <trans-unit id="21" resname="victoire.slider.reduce">
                 <source>victoire.slider.reduce</source>
                 <target>Reducir todos los elementos</target>
             </trans-unit>
-            <trans-unit resname="victoire.slider.reduce.active" id="5912e0e31ea9b">
+            <trans-unit id="22" resname="victoire.slider.reduce.active">
                 <source>victoire.slider.reduce.active</source>
                 <target>Expandir todos los elementos</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.deprecated" id="5912e0e31eab4">
+            <trans-unit id="23" resname="form.slideritem.deprecated">
                 <source>form.slideritem.deprecated</source>
                 <target>Este campo es obsoleto y será eliminar a la próxima gran actualización. Por favor, no use de nuevo.</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.enabled.label" id="5912e0e31eacd">
+            <trans-unit id="24" resname="form.slideritem.enabled.label">
                 <source>form.slideritem.enabled.label</source>
                 <target>¿ Diapositiva activa ?</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.advanced.label" id="5912e0e31eae6">
+            <trans-unit id="25" resname="widget_slider.form.advanced.label">
                 <source>widget_slider.form.advanced.label</source>
                 <target>¿ Modo avanzado ?</target>
             </trans-unit>
-            <trans-unit resname="widget.slider.preview" id="5912e0e31eafe">
+            <trans-unit id="26" resname="widget.slider.preview">
                 <source>widget.slider.preview</source>
                 <target>vista previa - cerrar esta ventana y ponerse en modo de edición para editar la diapositiva.</target>
             </trans-unit>
