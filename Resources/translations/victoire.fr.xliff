@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-    <file date="2014-07-01T16:37:02Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <file date="2014-07-01T16:37:02Z" source-language="en" target-language="fr" datatype="plaintext"
+          original="not.available">
         <header>
             <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
             <note>The source node in most cases contains the sample message as written by the developer. If it looks
@@ -9,103 +10,103 @@
             </note>
         </header>
         <body>
-            <trans-unit resname="modal.form.widget.type.slider.label" id="5912e0e31ee62">
+            <trans-unit id="1" resname="modal.form.widget.type.slider.label">
                 <source>modal.form.widget.type.slider.label</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="widget.form.theme.widgetslider" id="5912e0e31eea2">
+            <trans-unit id="2" resname="widget.form.theme.widgetslider">
                 <source>widget.form.theme.widgetslider</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="widget.slider.new.action.label" id="5912e0e31eec5">
+            <trans-unit id="3" resname="widget.slider.new.action.label">
                 <source>widget.slider.new.action.label</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="widget.widgetslider.new.action.label" id="5912e0e31eedc">
+            <trans-unit id="4" resname="widget.widgetslider.new.action.label">
                 <source>widget.widgetslider.new.action.label</source>
                 <target>Slider</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.title.label" id="5912e0e31eef3">
+            <trans-unit id="5" resname="form.slideritem.title.label">
                 <source>form.slideritem.title.label</source>
                 <target>Titre</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.subtitle.label" id="5912e0e31ef09">
+            <trans-unit id="6" resname="form.slideritem.subtitle.label">
                 <source>form.slideritem.subtitle.label</source>
                 <target>Sous-titre</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.description.label" id="5912e0e31ef1f">
+            <trans-unit id="7" resname="form.slideritem.description.label">
                 <source>form.slideritem.description.label</source>
                 <target>Description</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.linkUrl.label" id="5912e0e31ef6c">
+            <trans-unit id="8" resname="form.slideritem.linkUrl.label">
                 <source>form.slideritem.linkUrl.label</source>
                 <target>Bouton (Lien)</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.linkLabel.label" id="5912e0e31efbc">
+            <trans-unit id="9" resname="form.slideritem.linkLabel.label">
                 <source>form.slideritem.linkLabel.label</source>
                 <target>Bouton (libellé)</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.image.label" id="5912e0e31efea">
+            <trans-unit id="10" resname="form.slideritem.image.label">
                 <source>form.slideritem.image.label</source>
                 <target>Image</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.library.label" id="5912e0e31f010">
+            <trans-unit id="11" resname="widget_slider.form.library.label">
                 <source>widget_slider.form.library.label</source>
                 <target>Librairie</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.autoplay.label" id="5912e0e31f029">
+            <trans-unit id="12" resname="widget_slider.form.autoplay.label">
                 <source>widget_slider.form.autoplay.label</source>
                 <target>Lecture automatique</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.adaptiveHeight.label" id="5912e0e31f042">
+            <trans-unit id="13" resname="widget_slider.form.adaptiveHeight.label">
                 <source>widget_slider.form.adaptiveHeight.label</source>
                 <target>Hauteur adaptive</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.autoplaySpeed.label" id="5912e0e31f05a">
+            <trans-unit id="14" resname="widget_slider.form.autoplaySpeed.label">
                 <source>widget_slider.form.autoplaySpeed.label</source>
                 <target>Durée des slides (en millisecondes)</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.bullets.label" id="5912e0e31f073">
+            <trans-unit id="15" resname="widget_slider.form.bullets.label">
                 <source>widget_slider.form.bullets.label</source>
                 <target>Indicateurs (puces)</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.library.bootstrap.help" id="5912e0e31f08b">
+            <trans-unit id="16" resname="widget_slider.form.library.bootstrap.help">
                 <source>widget_slider.form.library.bootstrap.help</source>
                 <target>
                     <![CDATA[Le slider de Bootstrap est ici proposé avec des puces au centre de l'image pour passer d'une slide à l'autre.</br>
                     <a href="http://getbootstrap.com/javascript/#carousel" target="_blank">http://getbootstrap.com/javascript/#carousel</a>]]></target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.library.slick.help" id="5912e0e31f0ac">
+            <trans-unit id="17" resname="widget_slider.form.library.slick.help">
                 <source>widget_slider.form.library.slick.help</source>
                 <target>
                     <![CDATA[Le slider Slick s'adapte parfaitement à tous les supports.</br>Il est entièrement responsive et permet de passer d'une slide à l'autre en glissant l'image (comme sur tablette et mobile).</br>Par défaut, il intègre des flèches de navigation, de chaque côté de l'image.</br>
                     <a href="http://kenwheeler.github.io/slick" target="_blank">http://kenwheeler.github.io/slick</a>]]></target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.add.label" id="5912e0e31f0d5">
+            <trans-unit id="18" resname="widget_slider.form.add.label">
                 <source>widget_slider.form.add.label</source>
                 <target>Ajouter un élément</target>
             </trans-unit>
-            <trans-unit resname="victoire.slider.reduce" id="5912e0e31f0f6">
+            <trans-unit id="19" resname="victoire.slider.reduce">
                 <source>victoire.slider.reduce</source>
                 <target>Réduire tous les éléments</target>
             </trans-unit>
-            <trans-unit resname="victoire.slider.reduce.active" id="5912e0e31f120">
+            <trans-unit id="20" resname="victoire.slider.reduce.active">
                 <source>victoire.slider.reduce.active</source>
                 <target>Étendre tous les éléments</target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.deprecated" id="5912e0e31f138">
+            <trans-unit id="21" resname="form.slideritem.deprecated">
                 <source>form.slideritem.deprecated</source>
                 <target>Ce champs est déprécié et sera supprimé à la prochaine mise à jour, merci de ne plus l'utiliser </target>
             </trans-unit>
-            <trans-unit resname="form.slideritem.enabled.label" id="5912e0e31f150">
+            <trans-unit id="22" resname="form.slideritem.enabled.label">
                 <source>form.slideritem.enabled.label</source>
                 <target>Activer ce slide ?</target>
             </trans-unit>
-            <trans-unit resname="widget_slider.form.advanced.label" id="5912e0e31f169">
+            <trans-unit id="23" resname="widget_slider.form.advanced.label">
                 <source>widget_slider.form.advanced.label</source>
                 <target>Mode avancé ?</target>
             </trans-unit>
-            <trans-unit resname="widget.slider.preview" id="5912e0e31f181">
+            <trans-unit id="24" resname="widget.slider.preview">
                 <source>widget.slider.preview</source>
                 <target>prévisualisation - fermez la modal et passer en mode édition pour éditer le slide.</target>
             </trans-unit>
