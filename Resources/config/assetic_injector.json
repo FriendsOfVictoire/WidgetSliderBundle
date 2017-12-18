@@ -3,7 +3,7 @@
     {
         "stylesheets":
         {
-            "victoire-edit": "@VictoireWidgetSliderBundle/Resources/public/css/style_slider.scss"
+            "victoire-edit": "@VictoireWidgetSliderBundle/Resources/public/css/style_slider.css"
         }
     }
 }
