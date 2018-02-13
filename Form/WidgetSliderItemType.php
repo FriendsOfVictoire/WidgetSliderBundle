@@ -33,6 +33,9 @@ class WidgetSliderItemType extends WidgetType
                 'attr' => [
                     'class' => 'vic-position',
                 ],
+            ])
+            ->add('image', MediaType::class, [
+                'label' => 'form.slideritem.image.label',
             ]);
 
         if ($options['mode'] === Widget::MODE_STATIC) {
@@ -89,7 +92,7 @@ class WidgetSliderItemType extends WidgetType
      */
     private function manageAdvancedMode(FormInterface $form, $hasAdvancedField)
     {
-        if (!$hasAdvancedField) {
+        if ($hasAdvancedField) {
             $form
                 ->add('title', null, [
                     'label'          => 'form.slideritem.title.label',
@@ -106,9 +109,6 @@ class WidgetSliderItemType extends WidgetType
                 ->add('linkLabel', null, [
                     'label'          => 'form.slideritem.linkLabel.label',
                     'vic_help_block' => 'form.slideritem.deprecated',
-                ])
-                ->add('image', MediaType::class, [
-                    'label' => 'form.slideritem.image.label',
                 ]);
         }
     }
