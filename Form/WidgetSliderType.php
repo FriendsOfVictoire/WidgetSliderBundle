@@ -82,8 +82,8 @@ class WidgetSliderType extends WidgetType
                 'attr'          => [
                     'id' => ($options['mode'] === Widget::MODE_STATIC) ? 'static' : $options['businessEntityId'],
                 ],
-                'options'       => [
-                    'mode'             => $options['mode'],
+                'entry_options' => [
+                    'mode' => $options['mode'],
                 ],
             ]);
     }
