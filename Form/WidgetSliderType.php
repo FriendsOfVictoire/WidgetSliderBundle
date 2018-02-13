@@ -80,17 +80,13 @@ class WidgetSliderType extends WidgetType
                     'businessEntityId' => $options['businessEntityId'],
                     'namespace'        => $options['namespace'],
                     'widget'           => $options['widget'],
+                    'mode'             => $options['mode'],
                 ],
                 'allow_add'     => true,
                 'allow_delete'  => true,
                 'by_reference'  => false,
                 'attr'          => [
                     'id' => ($options['mode'] === Widget::MODE_STATIC) ? 'static' : $options['businessEntityId'],
-                ],
-                'options'       => [
-                    'namespace'        => $options['namespace'],
-                    'businessEntityId' => $options['businessEntityId'],
-                    'mode'             => $options['mode'],
                 ],
             ]);
     }
