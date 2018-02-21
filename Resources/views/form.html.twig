@@ -30,6 +30,9 @@
 
         <div class="col-sm-12">
             <button class="vic-btn vic-btn-add vic-btn-no-icon vic-reduce vic-pull-right"><i class="fa fa-arrows-v"></i> {{ 'victoire.slider.reduce'|trans }}</button>
+        </div>
+
+        <div class="col-sm-12">
             <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
                 {% for item in form.sliderItems %}
                     {% spaceless %}
@@ -54,6 +57,97 @@
     </div>
 
     {{ form_end(form) }}
+
+    <script type="text/javascript">
+        {% set focusEvent = 'mousedown.ui-disableSelection selectstart.ui-disableSelection' %}
+
+        $vic('.vic-sortable').sortable({
+            axis: 'y',
+            cancel: ".vic-add",
+            items: "> li",
+            opacity: 0.5,
+            stop: function(event, ui){
+                var item = ui.item;
+                var inputs = $vic('.vic-position');
+                inputs.each(function(index){
+                    $(this).val(index);
+                });
+            }
+        });
+
+        /**
+         * Enable focus in input, textarea and select, because of D&D
+         */
+        $vic("input, select, textarea").on('{{ focusEvent }}', function(e){e.stopImmediatePropagation();});
+
+        /**
+         * Reduce slide to D&D easier
+         */
+        $vic('.vic-reduce').on('click', function(e){
+            e.preventDefault();
+            if ($vic(this).hasClass('active')) {
+                $vic(this).removeClass('active').html('<i class="fa fa-arrows-v"></i> {{ 'victoire.slider.reduce'|trans }}');
+                $vic('.vic-panel-body').slideDown();
+                $vic('.vic-expand').removeClass('active');
+            } else {
+                $vic(this).addClass('active').html('<i class="fa fa-arrows-v"></i> {{ 'victoire.slider.reduce.active'|trans }}');
+                $vic('.vic-panel-body').slideUp();
+                $vic('.vic-expand').addClass('active');
+            }
+        });
+
+        /**
+         * Expand to see slide content
+         */
+        var reduce = function(e, elem) {
+            e.preventDefault();
+            if (elem.hasClass('active')) {
+                elem.removeClass('active');
+                elem.siblings('.vic-panel-body').slideDown();
+            } else {
+                elem.addClass('active');
+                elem.siblings('.vic-panel-body').slideUp();
+            }
+        };
+        $vic('.vic-expand').on('click', function(e){reduce(e, $vic(this));});
+        $vic('.vic-expand .vic-checkbox').on('click', function(e) {e.stopImmediatePropagation();});
+
+        var collectionHolder = $vic('ul.vic-items');
+        $vic(document).ready(function () {
+
+            // Disable entity select when we submit the form
+            $vic('form#{{form.sliderItems.vars.attr.id}}').on('submit', function (e) {
+                $vic('select.add_{{form.sliderItems.vars.attr.id}}_link').prop('disabled', true);
+            });
+
+            //Add item event
+            $('.vic-btn-add-item').on('click', function (e) {
+                e.preventDefault();
+                addItemForm(collectionHolder);
+            });
+
+        });
+
+        //Remove item event
+        $vic(document).on('click', 'button[data-action="remove-block"]', function (e) {
+            e.preventDefault();
+            $vic(this).parents('li').remove();
+        });
+
+        //Get prototype attribute, replace __name__ according to collection length and append element in dom
+        function addItemForm(collectionHolder) {
+            var prototype = collectionHolder.attr('data-prototype');
+            var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+            var $newFormContainer = $vic('<li class="vic-col-sm-12 vic-request-block"></li>');
+            collectionHolder.append($newFormContainer);
+            $vic($newFormContainer).append(newForm);
+            $vic($newFormContainer).find("input, select, textarea").on('{{ focusEvent }}', function(e){e.stopImmediatePropagation();});
+            $vic($newFormContainer).find(".vic-position").val($vic(".vic-position").length);
+            $vic($newFormContainer).find('.vic-expand').on('click', function(e){reduce(e, $vic(this));});
+            $vic($newFormContainer).find('.vic-expand .vic-checkbox').on('click', function(e) {e.stopImmediatePropagation();});
+        }
+
+    </script>
 
 {% endblock form_static %}
 
