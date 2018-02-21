@@ -93,19 +93,15 @@ class WidgetSliderItemType extends WidgetType
             $form
                 ->add('title', null, [
                     'label'          => 'form.slideritem.title.label',
-                    'vic_help_block' => 'form.slideritem.deprecated',
                 ])
                 ->add('subtitle', null, [
                     'label'          => 'form.slideritem.subtitle.label',
-                    'vic_help_block' => 'form.slideritem.deprecated',
                 ])
                 ->add('link', LinkType::class, [
                     'label'          => 'form.slideritem.linkUrl.label',
-                    'vic_help_block' => 'form.slideritem.deprecated',
                 ])
                 ->add('linkLabel', null, [
                     'label'          => 'form.slideritem.linkLabel.label',
-                    'vic_help_block' => 'form.slideritem.deprecated',
                 ])
                 ->add('image', MediaType::class, [
                     'label' => 'form.slideritem.image.label',

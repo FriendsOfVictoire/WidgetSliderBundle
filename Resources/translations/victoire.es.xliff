@@ -102,10 +102,6 @@
                 <source>victoire.slider.reduce.active</source>
                 <target>Expandir todos los elementos</target>
             </trans-unit>
-            <trans-unit id="23" resname="form.slideritem.deprecated">
-                <source>form.slideritem.deprecated</source>
-                <target>Este campo es obsoleto y será eliminar a la próxima gran actualización. Por favor, no use de nuevo.</target>
-            </trans-unit>
             <trans-unit id="24" resname="form.slideritem.enabled.label">
                 <source>form.slideritem.enabled.label</source>
                 <target>¿ Diapositiva activa ?</target>
