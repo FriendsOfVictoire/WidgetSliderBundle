@@ -15,7 +15,7 @@
             {% set params = loop.first ? {'class' : 'active'} : [] %}
             {% embed 'VictoireWidgetSliderBundle::_item.html.twig' with params %}
                 {% block background_image %}
-                    {% if not item.advanced and item.image %}background-image: url({{ item.image.url|e }});{% endif %}
+                    {% if not item.advanced and item.image %}background-image: url({{ item.image.url|default(null)|e }});{% endif %}
                 {% endblock %}
 
                 {% block title_content %}

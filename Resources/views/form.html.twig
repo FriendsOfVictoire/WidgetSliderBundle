@@ -1,6 +1,5 @@
 {% extends 'VictoireCoreBundle:Widget:new.html.twig' %}
 {% trans_default_domain "victoire" %}
-{% form_theme form 'VictoireWidgetSliderBundle::fields.html.twig' %}
 
 {% block info %}
     <div class="vic-alert vic-alert-warning vic-alert-dismissible">
@@ -33,7 +32,8 @@
         </div>
 
         <div class="col-sm-12">
-            <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
+            <ul class="vic-row vic-items vic-sortable"
+                data-prototype="{% filter escape %}{% include 'VictoireWidgetSliderBundle::_itemForm.html.twig' with { 'item': form.sliderItems.vars.prototype } %}{% endfilter %}">
                 {% for item in form.sliderItems %}
                     {% spaceless %}
                         <li class="vic-col-sm-12 vic-request-block">
@@ -45,7 +45,7 @@
         </div>
 
         <div class="vic-col-sm-12 vic-col-md-6 vic-col-lg-4">
-            <a href="#" onclick='addItemStaticForm("", "{{ quantum }}")' class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block">{{ 'widget.form.WidgetListingItemType.addItem.label'|trans({}, 'victoire') }}</a>
+            <a href="#" onclick='addItemStaticForm("", "{{ quantum|default('') }}")' class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block">{{ 'widget.form.WidgetListingItemType.addItem.label'|trans({}, 'victoire') }}</a>
         </div>
 
         <div class="vic-col-sm-12">
@@ -176,7 +176,8 @@
 
             <div class="col-sm-12">
                 <button class="vic-btn vic-btn-add vic-btn-no-icon vic-reduce vic-pull-right"><i class="fa fa-arrows-v"></i> {{ 'victoire.slider.reduce'|trans }}</button>
-                <ul class="vic-row vic-items vic-sortable" data-prototype="{{ form_widget(form.sliderItems.vars.prototype)|e }}">
+                <ul class="vic-row vic-items vic-sortable"
+                    data-prototype="{% filter escape %}{% include 'VictoireWidgetSliderBundle::_itemForm.html.twig' with { 'item': form.sliderItems.vars.prototype } %}{% endfilter %}">
                     {% for item in form.sliderItems %}
                         {% spaceless %}
                             <li class="vic-col-sm-12 vic-request-block">
