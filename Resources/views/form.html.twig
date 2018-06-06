@@ -67,13 +67,19 @@
             items: "> li",
             opacity: 0.5,
             stop: function(event, ui){
-                var item = ui.item;
-                var inputs = $vic('.vic-position');
-                inputs.each(function(index){
-                    $(this).val(index);
+		setPositionValues();
                 });
             }
         });
+
+	var setPositionValues = function() {
+            var inputs = $vic('.vic-position');
+            inputs.each(function(index){
+                $(this).val(index);
+            });
+        }
+
+        setPositionValues();
 
         /**
          * Enable focus in input, textarea and select, because of D&D
