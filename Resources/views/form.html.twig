@@ -67,12 +67,11 @@
             items: "> li",
             opacity: 0.5,
             stop: function(event, ui){
-		setPositionValues();
-                });
+                setPositionValues();
             }
         });
 
-	var setPositionValues = function() {
+        var setPositionValues = function() {
             var inputs = $vic('.vic-position');
             inputs.each(function(index){
                 $(this).val(index);
